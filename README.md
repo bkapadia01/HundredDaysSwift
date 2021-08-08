@@ -2,7 +2,7 @@
 
 ### Project 1 - Storm Viewer
  - [Hundred days of swift link: Project 1](https://www.hackingwithswift.com/read/1/overview)
- - [Link to swift project 2](https://github.com/bkapadia01/HundredDaysSwift/tree/main/Project1)
+ - [Link to swift project 1](https://github.com/bkapadia01/HundredDaysSwift/tree/main/Project1)
 
 
 ### Project 2 - Guess the flag
