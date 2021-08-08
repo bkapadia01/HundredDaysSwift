@@ -75,16 +75,17 @@ class ViewController: UITableViewController {
                 if isReal(word: lowerAnswer) {
                     if isStartWord(word: lowerAnswer){
                         if isTooShort(word: lowerAnswer){
-                    usedWords.insert(answer, at: 0)
+                            usedWords.insert(answer, at: 0)
                     
-                    let indexPath = IndexPath(row: 0, section: 0)
-                    tableView.insertRows(at: [indexPath], with: .automatic)
+                            let indexPath = IndexPath(row: 0, section: 0)
+                            tableView.insertRows(at: [indexPath], with: .automatic)
                    
-                    return
-                        } else {
+                            return
+                            } else {
                             showErrorMessage(errorTitle: "Word is too short", errorMessage: "Enter word greater than 3 characters")
-                        }
-                    } else {
+                            }
+                    }
+                    else {
                         showErrorMessage(errorTitle: "Word can not be same as start word", errorMessage: "You can't do that")
                     }
                 } else {
