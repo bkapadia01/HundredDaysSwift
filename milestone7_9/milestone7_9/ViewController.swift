@@ -8,15 +8,14 @@
 import UIKit
 
 class ViewController: UIViewController {
-    @IBOutlet var imageHangman: UIImage!
     var wordLabel: UILabel!
     var wordSelectionList = [String]()
     var wordToGuess = String()
     var letterEntered: UILabel!
-    var enterLetter: UIButton!
+    var inputLetterButton: UIButton!
     var listOfLettersEntered = [String]()
     var wordInPlay = String()
-    var countOfMissedLetter = 0
+    //var countOfMissedLetter = 0
     var updateCountOfMissedLetter = 0
     var bodyParts = 0
     var imageName = String()
@@ -24,13 +23,11 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        view = UIView()
         view.backgroundColor = .white
  
         imageOfHangman(imageFile: "4.jpg")
         
         performSelector(inBackground: #selector(loadWord), with: nil)
-        
         
         wordLabel = UILabel()
         wordLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -42,20 +39,20 @@ class ViewController: UIViewController {
         letterEntered = UILabel()
         letterEntered.translatesAutoresizingMaskIntoConstraints = false
         letterEntered.textAlignment = .center
-        letterEntered.text = "- - - - - - - "
+        letterEntered.text = "Letter Entered: "
         letterEntered.font = UIFont.systemFont(ofSize: 44)
         letterEntered.textColor = .blue
         view.addSubview(letterEntered)
         
-        enterLetter = UIButton(type: .roundedRect)
-        enterLetter.translatesAutoresizingMaskIntoConstraints = false
-        enterLetter.setTitle("Enter Letter", for: .normal)
-        enterLetter.titleLabel?.sizeToFit()
-        enterLetter.titleLabel?.font = UIFont.systemFont(ofSize: 33)
-        enterLetter.layer.borderWidth = 3
-        enterLetter.layer.borderColor = UIColor.gray.cgColor
-        enterLetter.addTarget(self, action: #selector(enterLetterButtonTapped), for: .touchUpInside)
-        view.addSubview(enterLetter)
+        inputLetterButton = UIButton(type: .roundedRect)
+        inputLetterButton.translatesAutoresizingMaskIntoConstraints = false
+        inputLetterButton.setTitle("Enter Letter", for: .normal)
+        inputLetterButton.titleLabel?.sizeToFit()
+        inputLetterButton.titleLabel?.font = UIFont.systemFont(ofSize: 33)
+        inputLetterButton.layer.borderWidth = 3
+        inputLetterButton.layer.borderColor = UIColor.gray.cgColor
+        inputLetterButton.addTarget(self, action: #selector(enterLetterButtonTapped), for: .touchUpInside)
+        view.addSubview(inputLetterButton)
         
         
         NSLayoutConstraint.activate([
@@ -63,8 +60,8 @@ class ViewController: UIViewController {
             wordLabel.centerXAnchor.constraint(equalTo: view.layoutMarginsGuide.centerXAnchor),
             letterEntered.centerXAnchor.constraint(equalTo: view.layoutMarginsGuide.centerXAnchor),
             letterEntered.topAnchor.constraint(equalTo: wordLabel.bottomAnchor, constant: 100),
-            enterLetter.topAnchor.constraint(equalTo: wordLabel.bottomAnchor, constant: 30),
-            enterLetter.centerXAnchor.constraint(equalTo: view.layoutMarginsGuide.centerXAnchor)
+            inputLetterButton.topAnchor.constraint(equalTo: wordLabel.bottomAnchor, constant: 30),
+            inputLetterButton.centerXAnchor.constraint(equalTo: view.layoutMarginsGuide.centerXAnchor)
         ])
     }
     
@@ -90,12 +87,10 @@ class ViewController: UIViewController {
         wordLabel.text = wordInPlay
     }
     
-    func refreshListOfEnteredLetter() {
-        countOfMissedLetter = 0
+    func refreshAndClearPreviousGame() {
+        _ = countQuestionMarks()
         updateCountOfMissedLetter = 0
         bodyParts = 0
-        letterEntered.text = "- - - - - - - "
-        listOfLettersEntered = [""]
     }
 
     @objc func enterLetterButtonTapped() {
@@ -120,7 +115,7 @@ class ViewController: UIViewController {
                 wordInPlay += "?"
         }
         updateLabel()
-        refreshListOfEnteredLetter()
+        refreshAndClearPreviousGame()
         imageOfHangman(imageFile: "4.jpg")
     }
     
@@ -154,7 +149,7 @@ class ViewController: UIViewController {
     
     func countBodyParts() {
         let intialCount = wordToGuess.count
-        countQuestionMarks()
+        let countOfMissedLetter = countQuestionMarks()
         if(countOfMissedLetter == intialCount) {
             bodyParts += 1
         } else if (countOfMissedLetter == updateCountOfMissedLetter) {
@@ -178,9 +173,9 @@ class ViewController: UIViewController {
     
     func updateWordInPlay() {
         var runningWord = ""
-        for letter in wordToGuess { //B
+        for letter in wordToGuess { // ie. The letter: B
             var letterWeAreAddingToRunningWord = ""
-            for input in listOfLettersEntered { // each input
+            for input in listOfLettersEntered { // each input letter
                 let strLetter = String(letter)
                 if strLetter == input {
                     letterWeAreAddingToRunningWord = strLetter
@@ -194,13 +189,14 @@ class ViewController: UIViewController {
         wordLabel.text = runningWord
     }
 
-    func countQuestionMarks() {
-        countOfMissedLetter = 0
+    func countQuestionMarks() -> Int {
+        var countOfMissedLetter = 0
         for question in wordLabel.text! {
             if(question == "?") {
                 countOfMissedLetter += 1
             }
         }
+        return countOfMissedLetter
     }
 
     func showErrorMessage(errorTitle: String, errorMessage: String) {
