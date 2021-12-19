@@ -10,24 +10,27 @@ import UIKit
 class DetailViewController: UIViewController {
     @IBOutlet var imageView: UIImageView!
 
-    
+    var defaults = UserDefaults.standard
+    var savedCount = Int()
     var selectedImage: String?
     var xPicture: Int?
     var yPicture: Int?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(xPicture!, yPicture!)
+//        print(xPicture!, yPicture!)
         title = "Picture \(xPicture!) of \(yPicture!)"
         navigationItem.largeTitleDisplayMode = .never
         // Do any additional setup after loading the view.
         
         if let imageToLoad =  selectedImage {
             imageView.image = UIImage(named: imageToLoad)
+            savedCount = defaults.integer(forKey: "\(imageToLoad)")
+            savedCount += 1
+            self.navigationItem.prompt = "Selection Count: \(savedCount)"
+            print(savedCount)
+            defaults.set(savedCount, forKey: "\(imageToLoad)")
         }
-        
-        
-
     }
     
     override func viewWillAppear(_ animated: Bool) {
