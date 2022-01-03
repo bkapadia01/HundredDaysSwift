@@ -1,0 +1,109 @@
+[
+    {
+        "name": "Canada",
+        "capital": "Ottawa",
+        "currency": "CAD"
+    },
+    {
+        "name": "USD",
+        "capital": "Washington DC",
+        "currency": "USD"
+    },
+    {
+        "name": "Andorra",
+        "capital": "Andorra la Vella",
+        "currency": "EUR"
+    },
+    {
+        "name": "United Arab Emirates",
+        "currency": "AED",
+        "capital": "Abu Dhabi"
+    },
+    {
+        "name": "Afghanistan",
+        "currency": "AFN",
+        "capital": "Kabul"
+    },
+    {
+        "name": "Antigua and Barbuda",
+        "currency": "XCD",
+        "capital": "St. John's"
+    },
+    {
+        "name": "Anguilla",
+        "currency": "XCD",
+        "capital": "The Valley"
+    },
+    {
+        "countryCode": "AL",
+        "name": "Albania",
+        "currency": "ALL",
+        "population": "2986952",
+        "capital": "Tirana",
+        "continentName": "Europe"
+    },
+    {
+        "countryCode": "AM",
+        "name": "Armenia",
+        "currency": "AMD",
+        "population": "2968000",
+        "capital": "Yerevan",
+        "continentName": "Asia"
+    },
+    {
+        "countryCode": "AO",
+        "name": "Angola",
+        "currency": "AOA",
+        "population": "13068161",
+        "capital": "Luanda",
+        "continentName": "Africa"
+    },
+    {
+        "countryCode": "AQ",
+        "name": "Antarctica",
+        "currency": "",
+        "population": "0",
+        "capital": "",
+        "continentName": "Antarctica"
+    },
+    {
+        "countryCode": "AR",
+        "name": "Argentina",
+        "currency": "ARS",
+        "population": "41343201",
+        "capital": "Buenos Aires",
+        "continentName": "South America"
+    },
+    {
+        "countryCode": "AS",
+        "name": "American Samoa",
+        "currency": "USD",
+        "population": "57881",
+        "capital": "Pago Pago",
+        "continentName": "Oceania"
+    },
+    {
+        "countryCode": "AT",
+        "name": "Austria",
+        "currency": "EUR",
+        "population": "8205000",
+        "capital": "Vienna",
+        "continentName": "Europe"
+    },
+    {
+        "countryCode": "AU",
+        "name": "Australia",
+        "currency": "AUD",
+        "population": "21515754",
+        "capital": "Canberra",
+        "continentName": "Oceania"
+    },
+    {
+        "countryCode": "AW",
+        "name": "Aruba",
+        "currency": "AWG",
+        "population": "71566",
+        "capital": "Oranjestad",
+        "continentName": "North America"
+    }
+]
