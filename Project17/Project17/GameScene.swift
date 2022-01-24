@@ -97,7 +97,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         guard let touch = touches.first else { return }
         let location = touch.location(in: self)
         
-        print("Start = helllo")
         if player.frame.contains(location) {
             startTouchInFrame = true
 
