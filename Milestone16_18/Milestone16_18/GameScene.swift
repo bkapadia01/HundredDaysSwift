@@ -12,14 +12,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var gameOver: SKLabelNode!
     var timerCountdown: SKLabelNode!
     var explostion: SKEmitterNode!
-    
     var gameTimer: Timer?
     var isGameOver = false
-    var score = 0 {
-        didSet {
-            scoreLabel.text = "Score: \(score)"
-        }
-    }
+
     var wallShelf1 = SKSpriteNode(imageNamed: "wallShelf")
     var wallShelf2 = SKSpriteNode(imageNamed: "wallShelf")
     var wallShelf3 = SKSpriteNode(imageNamed: "wallShelf")
@@ -32,8 +27,15 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var bulletAdded: Int = 0
     var sprites = [SKSpriteNode]()
     var bulletFiredCount: Int = 0
+    
+    var score = 0 {
+        didSet {
+            scoreLabel.text = "Score: \(score)"
+        }
+    }
 
     override func didMove(to view: SKView) {
+        score = 0
 
         backgroundWall.position = CGPoint.init(x: frame.size.width/1.1, y: frame.size.height/1.1)
         backgroundWall.zPosition = -1
@@ -74,32 +76,30 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         addChild(reloadAmmo)
         print("\(reloadAmmo.texture!.description)")
         
-        score = 0
-        let sprites = addBulletSprite(count: 6)
+        
+        let sprites = addBulletsAmmoToRackSprite(count: 6)
            for sprite in sprites {
                addChild(sprite)
            }
-
-
-        
         
         let wait = SKAction.wait(forDuration: 2, withRange: 2)
         let spawn = SKAction.run {
-            self.createTargetRow(start:1200, height:Int(self.frame.size.height/1.13), end: -1500, scale: 1.00)
+            self.createTargetRow(start:1100, height:Int(self.frame.size.height/1.13), end: -1200, scale: 1.00)
             self.createTargetRow(start:-10, height:Int(self.frame.size.height/1.62), end: 1200, scale: -1.00)
-            self.createTargetRow(start:1200, height:Int(self.frame.size.height/3), end: -1500, scale: 1.00)
+            self.createTargetRow(start:1100, height:Int(self.frame.size.height/3), end: -1500, scale: 1.00)
         }
+        
         let sequence = SKAction.sequence([wait, spawn])
         self.run(SKAction.repeatForever(sequence))
     }
     
-    private func addBulletSprite(count: Int) -> [SKSpriteNode] {
+    private func addBulletsAmmoToRackSprite(count: Int) -> [SKSpriteNode] {
         reloadAmmo.isHidden = true
         for i in 0..<count {
             let sprite = SKSpriteNode(imageNamed: "ammoBullet")
             sprite.size = CGSize(width: 30, height: 80)
             sprite.isUserInteractionEnabled = false
-            sprite.name = "bulletz"
+            sprite.name = "bulletAmmo"
             sprite.isHidden = false
             sprite.position = CGPoint(x: (frame.size.width/1.5) + (50*(CGFloat(i))), y: frame.size.height/8)
             sprites.append(sprite)
@@ -107,10 +107,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         return sprites
     }
     
-    private func hideBulletSprite(count: Int) -> [SKSpriteNode] {
-        print("hidebulletsprite")
+    private func hideFiredBulletSprite(count: Int) -> [SKSpriteNode] {
+        print("hideFiredBulletSprite")
         
-        let sprite = childNode(withName: "bulletz")
+        let sprite = childNode(withName: "bulletAmmo")
         for _ in 0..<count {
             sprite?.removeFromParent()
         }
@@ -128,22 +128,20 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         sprite.isUserInteractionEnabled = false
         sprite.name = target.description
         addChild(sprite)
-        let spritez = SKAction.moveBy(x: end, y: 0, duration: 12)
-        sprite.run(spritez)
+        
+        let spriteMoveTargets = SKAction.moveBy(x: end, y: 0, duration: 12)
+        sprite.run(spriteMoveTargets)
     }
     
     override func update(_ currentTime: TimeInterval) {
-        
         for node in children {
-               if node.position.x < -50 {
+            if (node.position.x < -50 || node.position.x > 1200) {
                     node.removeFromParent()
                }
            }
-        
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        
         if let touch = touches.first {
             let shotFire = SKEmitterNode(fileNamed: "explosion")!
             let location = touch.location(in: self)
@@ -153,7 +151,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 addChild(shotFire)
                 print("bullet count \(bulletFiredCount)")
                 reloadAmmo.isHidden = true
-
             } else {
                 print("reload ammos!!")
                 reloadAmmo.isHidden = false
@@ -180,22 +177,17 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                }
             if nodeAtPoint == "reloadAmmo" {
                 bulletFiredCount = 0
-                addBulletsSprite(count: 6)
+                addBulletsAmmoSprite(count: 6)
                print("RELOAD")
             }
         }
-        
-        hideBulletSprite(count: bulletFiredCount)
-
+        hideFiredBulletSprite(count: bulletFiredCount)
     }
     
-    func addBulletsSprite(count: Int) {
-        let sprites = addBulletSprite(count: 0)
+    func addBulletsAmmoSprite(count: Int) {
+        let sprites = addBulletsAmmoToRackSprite(count: 0)
            for sprite in sprites {
                addChild(sprite)
            }
     }
-    
-    
-    
 }
