@@ -7,12 +7,10 @@
 
 import UIKit
 
-class ViewController: UICollectionViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-    @IBOutlet var editButton: UIBarButtonItem!
+class ViewController: UICollectionViewController, UINavigationControllerDelegate {
     
-    var menuGroups = [Menu]()
-    var menuGroupsParsed = [Menu]()
-
+    var menuGroups = [MenuGroupElement]()
+    var menuItems = [MenuItem]()
     var editModeEnabled = false
 
     override func viewDidLoad() {
@@ -34,30 +32,6 @@ class ViewController: UICollectionViewController, UIImagePickerControllerDelegat
         
     }
     
-    func parse(json: Data) -> [Menu]{
-        let decoder = JSONDecoder()
-        
-        if let jsonMenuGroup = try? decoder.decode([Menu].self, from: json) {
-            menuGroups = jsonMenuGroup
-            menuGroupsParsed = menuGroups
-            collectionView.reloadData()
-        }
-        return menuGroupsParsed
-    }
-
-    
-    
-    override func setEditing(_ editing: Bool, animated: Bool) {
-        super.setEditing(editing, animated: animated)
-        
-        if (editing) {
-            
-            editModeEnabled = true
-        } else {
-            editModeEnabled = false
-        }
-    }
-
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return menuGroups.count
     }
@@ -70,12 +44,10 @@ class ViewController: UICollectionViewController, UIImagePickerControllerDelegat
         let menuGroup = menuGroups[indexPath.item]
         cell.menuGroupName.text = menuGroup.menuName
         
-        let imgName = menuGroup.image
-        let imageAsset = UIImage(named: imgName)
-        cell.imageView.image = imageAsset
-        
-//        let path = getDocumentDirectory().appendingPathComponent(menuGroup.image)
-//        cell.imageView.image = UIImage(contentsOfFile: path.path)
+        let menuImageName = menuGroup.image
+        let imageAsset = UIImage(named: menuImageName)
+        let path = getDocumentDirectory().appendingPathComponent(menuGroup.image)
+        cell.imageView.image = UIImage(contentsOfFile: path.path) ?? imageAsset
         cell.imageView.layer.borderColor = UIColor(white: 0, alpha: 0.3).cgColor
         cell.imageView.layer.borderWidth = 2
         cell.imageView.layer.cornerRadius = 3
@@ -85,15 +57,13 @@ class ViewController: UICollectionViewController, UIImagePickerControllerDelegat
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let menuGroup = menuGroups[indexPath.item]
-        let vc = ItemTableViewController()
+        let vc = ItemCollectionViewController()
  
         
         if(menuGroup.menuSet == true && editModeEnabled == true) {
             editMenu(indexPath: indexPath)
         } else if (menuGroup.menuSet == true && editModeEnabled == false) {
-            storyboard?.instantiateViewController(withIdentifier: "menuItemTableViewController")
-            vc.title = menuGroups[indexPath.item].menuName
-            navigationController?.pushViewController(vc, animated: true)
+            self.performSegue(withIdentifier: "ItemCollectionViewSegue", sender: self)
 
         }
         if(menuGroup.menuSet == false) {
@@ -101,21 +71,43 @@ class ViewController: UICollectionViewController, UIImagePickerControllerDelegat
         }
         
     }
-    
-    
-    func editMenu(indexPath: IndexPath) {
-     
-        let ac = UIAlertController(title: "Edit Menu", message: nil, preferredStyle: .alert)
-        ac.addAction(UIAlertAction(title: "Rename Menu", style: .default, handler: {[weak self] _ in self?.renameMenu(indexPath: indexPath)}))
-        ac.addAction(UIAlertAction(title: "Delete Menu", style: .default, handler: {[weak self] _ in self?.deleteMenu(indexPath: indexPath)}))
-        ac.addAction(UIAlertAction(title: "Cancel", style: .cancel))
-        
-        present(ac, animated: true)
+}
 
+ 
+extension ViewController {
+    
+    func parse(json: Data) -> [MenuGroupElement]{
+        let decoder = JSONDecoder()
+        
+        if let jsonMenuGroup = try? decoder.decode([MenuGroupElement].self, from: json) {
+            menuGroups = jsonMenuGroup
+            collectionView.reloadData()
+        }
+        return menuGroups
+    }
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: sender)
+
+        if let menuItemCollectiionVC: ItemCollectionViewController = segue.destination as? ItemCollectionViewController {
+            if let indexPath = self.collectionView.indexPathsForSelectedItems {
+                menuItemCollectiionVC.menuGroup = menuGroups[indexPath.last?.row ?? 0]
+            }
+        }
+    }
+    
+    override func setEditing(_ editing: Bool, animated: Bool) {
+        super.setEditing(editing, animated: animated)
+        
+        if (editing) {
+            editModeEnabled = true
+        } else {
+            editModeEnabled = false
+        }
     }
     
     func renameMenu(indexPath: IndexPath) {
-        let menuGroup = menuGroups[indexPath.row]
+        var menuGroup = menuGroups[indexPath.row]
         
         let ac = UIAlertController(title: "Rename Person", message: nil, preferredStyle: .alert)
         ac.addTextField()
@@ -126,7 +118,6 @@ class ViewController: UICollectionViewController, UIImagePickerControllerDelegat
             menuGroup.menuSet = true
             self?.collectionView.reloadData()
         })
-        
         
         ac.addAction(UIAlertAction(title: "Cancel", style: .cancel))
         present(ac, animated: true)
@@ -142,9 +133,26 @@ class ViewController: UICollectionViewController, UIImagePickerControllerDelegat
         collectionView.reloadData()
     }
     
+    func editMenu(indexPath: IndexPath) {
+        let ac = UIAlertController(title: "Edit Menu", message: nil, preferredStyle: .alert)
+        ac.addAction(UIAlertAction(title: "Rename Menu", style: .default, handler: {[weak self] _ in self?.renameMenu(indexPath: indexPath)}))
+        ac.addAction(UIAlertAction(title: "Delete Menu", style: .default, handler: {[weak self] _ in self?.deleteMenu(indexPath: indexPath)}))
+        ac.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+        present(ac, animated: true)
+    }
+    
+    @objc func addNewMenuGroup() {
+        let picker = UIImagePickerController()
+        picker.allowsEditing = true
+        picker.delegate = self
+        present(picker, animated: true)
+    }
+}
+
+extension ViewController: UIImagePickerControllerDelegate {
+    
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         guard let image = info[.editedImage] as? UIImage else { return }
-        
         let imageName = UUID().uuidString
         let imagePath = getDocumentDirectory().appendingPathComponent(imageName)
         
@@ -152,10 +160,9 @@ class ViewController: UICollectionViewController, UIImagePickerControllerDelegat
             try? jpegData.write(to: imagePath)
         }
         
-        let menuGroup = Menu(menuName: "Click To Set Name", image: imageName, menuSet: false)
+        let menuGroup = MenuGroupElement(menuName: "Click To Set Name", image: imageName, menuSet: false, menuItem: [])
         menuGroups.append(menuGroup)
         picker.delegate = nil
-
         collectionView.reloadData()
         editButtonItem.isEnabled = true
         dismiss(animated: true)
@@ -166,14 +173,4 @@ class ViewController: UICollectionViewController, UIImagePickerControllerDelegat
         return paths[0]
         
     }
-    
-    @objc func addNewMenuGroup() {
-        let picker = UIImagePickerController()
-        picker.allowsEditing = true
-        picker.delegate = self
-        present(picker, animated: true)
-    }
-
 }
-
- 

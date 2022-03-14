@@ -2,6 +2,35 @@
     {
         "menuName": "Menu Group 1",
         "image": "pancake.jpeg",
-        "menuSet": true
+        "menuSet": true,
+        "menuItems":  [
+            {
+                "itemName": "Choclate",
+                "itemPrice": "$1.00",
+                "itemImage": "chocolate_pc.jpg"
+            },
+            {
+                "itemName": "Blueberry",
+                "itemPrice": "$2.00",
+                "itemImage": "blueberry_pc.jpg"
+            }
+        ]
+    },
+    {
+        "menuName": "Menu Group 2",
+        "image": "waffle.jpeg",
+        "menuSet": true,
+        "menuItems":  [
+            {
+                "itemName": "Item 3",
+                "itemPrice": "$3.00",
+                "itemImage": "chocolate_pc.jpg"
+            },
+            {
+                "itemName": "Item 4",
+                "itemPrice": "$4.00",
+                "itemImage": "chocolate_pc.jpg"
+            }
+        ]
     }
 ]
