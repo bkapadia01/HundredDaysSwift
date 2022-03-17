@@ -8,7 +8,7 @@
 // To parse the JSON, add this file to your project and do:
 //Model file
 //   let menuGroup = try? newJSONDecoder().decode(MenuGroup.self, from: jsonData)
-
+//composed method 
 import UIKit
 
 // MARK: - MenuGroupElement

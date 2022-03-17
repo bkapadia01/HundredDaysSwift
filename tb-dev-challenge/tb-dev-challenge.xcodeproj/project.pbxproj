@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C353E2E627E034220015DDBF /* ItemAddEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C353E2E527E034220015DDBF /* ItemAddEditViewController.swift */; };
 		C3E4FD5227C1A3A1007A7AEF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3E4FD5127C1A3A1007A7AEF /* AppDelegate.swift */; };
 		C3E4FD5427C1A3A1007A7AEF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3E4FD5327C1A3A1007A7AEF /* SceneDelegate.swift */; };
 		C3E4FD5627C1A3A1007A7AEF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3E4FD5527C1A3A1007A7AEF /* ViewController.swift */; };
@@ -22,6 +23,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C353E2E527E034220015DDBF /* ItemAddEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemAddEditViewController.swift; sourceTree = "<group>"; };
 		C3E4FD4E27C1A3A1007A7AEF /* tb-dev-challenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "tb-dev-challenge.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3E4FD5127C1A3A1007A7AEF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C3E4FD5327C1A3A1007A7AEF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -75,6 +77,7 @@
 				C3E4FD7A27CAE504007A7AEF /* MenuGroupData.json */,
 				C3E4FD6A27C1B4EB007A7AEF /* MenuGroupModel.swift */,
 				C3E4FD5727C1A3A1007A7AEF /* Main.storyboard */,
+				C353E2E527E034220015DDBF /* ItemAddEditViewController.swift */,
 				C3E4FD6827C1A6F9007A7AEF /* MenuGroupCell.swift */,
 				C3E4FD8027CB44F0007A7AEF /* MenuItemCell.swift */,
 				C3E4FD5D27C1A3A4007A7AEF /* Assets.xcassets */,
@@ -162,6 +165,7 @@
 				C3E4FD7F27CB4137007A7AEF /* ItemCollectionViewController.swift in Sources */,
 				C3E4FD6927C1A6F9007A7AEF /* MenuGroupCell.swift in Sources */,
 				C3E4FD5427C1A3A1007A7AEF /* SceneDelegate.swift in Sources */,
+				C353E2E627E034220015DDBF /* ItemAddEditViewController.swift in Sources */,
 				C3E4FD8127CB44F0007A7AEF /* MenuItemCell.swift in Sources */,
 				C3E4FD5C27C1A3A2007A7AEF /* tb_dev_challenge.xcdatamodeld in Sources */,
 			);

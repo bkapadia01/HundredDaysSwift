@@ -19,6 +19,7 @@ class ViewController: UICollectionViewController, UINavigationControllerDelegate
         navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addNewMenuGroup))
         self.navigationItem.rightBarButtonItem = editButtonItem
         editButtonItem.isEnabled = false
+
         
         guard let sourcePath = Bundle.main.url(forResource: "MenuGroupData", withExtension: "json") else {
             fatalError("Could not find json file")
@@ -27,7 +28,12 @@ class ViewController: UICollectionViewController, UINavigationControllerDelegate
         if let data = try? Data(contentsOf: sourcePath) {
             parse(json: data)
         } else {
-            fatalError("NOOOO")
+            fatalError("Could not access source path of json data")
+        }
+        
+        if menuGroups.count > 0 {
+            editButtonItem.isEnabled = true
+
         }
         
     }
@@ -82,6 +88,8 @@ extension ViewController {
         if let jsonMenuGroup = try? decoder.decode([MenuGroupElement].self, from: json) {
             menuGroups = jsonMenuGroup
             collectionView.reloadData()
+        } else {
+            fatalError("Data could not be parsed successfully")
         }
         return menuGroups
     }
@@ -109,7 +117,7 @@ extension ViewController {
     func renameMenu(indexPath: IndexPath) {
         var menuGroup = menuGroups[indexPath.row]
         
-        let ac = UIAlertController(title: "Rename Person", message: nil, preferredStyle: .alert)
+        let ac = UIAlertController(title: "Rename Menu Group", message: nil, preferredStyle: .alert)
         ac.addTextField()
         ac.addAction(UIAlertAction(title: "OK", style: .default) {
             [weak self, weak ac] _ in

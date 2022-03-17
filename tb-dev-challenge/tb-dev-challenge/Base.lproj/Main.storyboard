@@ -9,21 +9,6 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Testing View Controller-->
-        <scene sceneID="8EZ-2a-wVS">
-            <objects>
-                <viewController id="Kny-mQ-aEB" customClass="TestingViewController" customModule="tb_dev_challenge" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Wic-0V-uyq">
-                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="ubf-GL-Apl"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="9Em-tB-fTI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="733" y="-701"/>
-        </scene>
         <!--View Controller-->
         <scene sceneID="dxD-zE-KS5">
             <objects>
@@ -178,6 +163,103 @@
             </objects>
             <point key="canvasLocation" x="1950" y="38.671875"/>
         </scene>
+        <!--Item Add Edit View Controller-->
+        <scene sceneID="n3o-hM-Iek">
+            <objects>
+                <viewController storyboardIdentifier="itemAddEditViewController" id="hL9-KX-lEn" customClass="ItemAddEditViewController" customModule="tb_dev_challenge" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="3Rn-Eq-0mq">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Chocolate Chip Pancake" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zbS-iW-0OL" userLabel="MenuItemNameTextField">
+                                <rect key="frame" x="226" y="178" width="356" height="34"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" enablesReturnKeyAutomatically="YES"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="$5.00" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="K8B-V2-HcE" userLabel="MenuItemPriceTextField">
+                                <rect key="frame" x="226" y="288" width="356" height="34"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numbersAndPunctuation"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Item Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p7w-a0-Vo7">
+                                <rect key="frame" x="226" y="149" width="83" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Item Price" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hvb-Sy-Ri2">
+                                <rect key="frame" x="226" y="259" width="77" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add New Item" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QBu-1r-3yF">
+                                <rect key="frame" x="307" y="100" width="154" height="27"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="27" id="eVY-oz-GWO"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="y2o-KV-3EX">
+                                <rect key="frame" x="224" y="471" width="361" height="281"/>
+                                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="281" id="eYj-OR-YDb"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Invalid - Enter Numeric Values Only" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t6v-I3-ImY">
+                                <rect key="frame" x="226" y="330" width="227.5" height="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" systemColor="systemRedColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="MSc-c9-ugR"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="K8B-V2-HcE" firstAttribute="leading" secondItem="hvb-Sy-Ri2" secondAttribute="trailing" constant="-77" id="1mi-jx-Z4C"/>
+                            <constraint firstItem="y2o-KV-3EX" firstAttribute="top" secondItem="t6v-I3-ImY" secondAttribute="bottom" constant="124" id="45R-pC-L6r"/>
+                            <constraint firstItem="K8B-V2-HcE" firstAttribute="top" secondItem="hvb-Sy-Ri2" secondAttribute="bottom" constant="8" symbolic="YES" id="5pU-SN-Too"/>
+                            <constraint firstItem="zbS-iW-0OL" firstAttribute="leading" secondItem="hvb-Sy-Ri2" secondAttribute="leading" id="FaS-xZ-gEq"/>
+                            <constraint firstItem="zbS-iW-0OL" firstAttribute="leading" secondItem="p7w-a0-Vo7" secondAttribute="trailing" constant="-83" id="Fyp-EX-0kn"/>
+                            <constraint firstItem="zbS-iW-0OL" firstAttribute="leading" secondItem="K8B-V2-HcE" secondAttribute="leading" id="GGx-9t-a9e"/>
+                            <constraint firstItem="hvb-Sy-Ri2" firstAttribute="top" secondItem="zbS-iW-0OL" secondAttribute="bottom" constant="47" id="J3f-za-HvN"/>
+                            <constraint firstItem="zbS-iW-0OL" firstAttribute="top" secondItem="p7w-a0-Vo7" secondAttribute="bottom" constant="8" id="KFP-Kv-dX9"/>
+                            <constraint firstItem="K8B-V2-HcE" firstAttribute="top" secondItem="hvb-Sy-Ri2" secondAttribute="bottom" constant="8" id="KZV-aP-Xcd"/>
+                            <constraint firstItem="MSc-c9-ugR" firstAttribute="trailing" secondItem="t6v-I3-ImY" secondAttribute="trailing" constant="314.5" id="Nw2-as-JOI"/>
+                            <constraint firstItem="MSc-c9-ugR" firstAttribute="trailing" secondItem="zbS-iW-0OL" secondAttribute="trailing" constant="186" id="Qmm-h8-MbM"/>
+                            <constraint firstItem="K8B-V2-HcE" firstAttribute="top" secondItem="zbS-iW-0OL" secondAttribute="bottom" constant="76" id="UVg-Yg-dzE"/>
+                            <constraint firstItem="t6v-I3-ImY" firstAttribute="top" secondItem="K8B-V2-HcE" secondAttribute="bottom" constant="8" symbolic="YES" id="VFP-m3-jR6"/>
+                            <constraint firstItem="zbS-iW-0OL" firstAttribute="trailing" secondItem="K8B-V2-HcE" secondAttribute="trailing" id="X8n-Fa-6fU"/>
+                            <constraint firstItem="t6v-I3-ImY" firstAttribute="leading" secondItem="MSc-c9-ugR" secondAttribute="leading" constant="226" id="Xol-w9-GsU"/>
+                            <constraint firstItem="MSc-c9-ugR" firstAttribute="bottom" secondItem="y2o-KV-3EX" secondAttribute="bottom" constant="272" id="cEb-xg-vjC"/>
+                            <constraint firstItem="MSc-c9-ugR" firstAttribute="trailing" secondItem="QBu-1r-3yF" secondAttribute="trailing" constant="307" id="ein-G6-B24"/>
+                            <constraint firstItem="zbS-iW-0OL" firstAttribute="top" secondItem="QBu-1r-3yF" secondAttribute="bottom" constant="51" id="hDl-lw-dCs"/>
+                            <constraint firstItem="y2o-KV-3EX" firstAttribute="top" secondItem="MSc-c9-ugR" secondAttribute="top" constant="471" id="hiY-3k-Wag"/>
+                            <constraint firstItem="K8B-V2-HcE" firstAttribute="leading" secondItem="y2o-KV-3EX" secondAttribute="trailing" constant="-235" id="j9s-Ga-8Rl"/>
+                            <constraint firstItem="QBu-1r-3yF" firstAttribute="top" secondItem="MSc-c9-ugR" secondAttribute="top" constant="100" id="kA4-l1-94r"/>
+                            <constraint firstItem="zbS-iW-0OL" firstAttribute="leading" secondItem="p7w-a0-Vo7" secondAttribute="leading" id="kRz-BK-cge"/>
+                            <constraint firstItem="t6v-I3-ImY" firstAttribute="leading" secondItem="K8B-V2-HcE" secondAttribute="leading" id="lEQ-g6-oCZ"/>
+                            <constraint firstItem="zbS-iW-0OL" firstAttribute="leading" secondItem="MSc-c9-ugR" secondAttribute="leading" constant="226" id="mXC-9i-nNY"/>
+                            <constraint firstItem="QBu-1r-3yF" firstAttribute="centerX" secondItem="MSc-c9-ugR" secondAttribute="centerX" id="w8s-ik-Xbd"/>
+                            <constraint firstItem="y2o-KV-3EX" firstAttribute="leading" secondItem="MSc-c9-ugR" secondAttribute="leading" constant="221" id="wsi-Fv-8P7"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="itemImagePreview" destination="y2o-KV-3EX" id="jCj-Lc-fL8"/>
+                        <outlet property="itemPriceValidationLabel" destination="t6v-I3-ImY" id="Cj6-KP-uxx"/>
+                        <outlet property="menuItemNameTextField" destination="zbS-iW-0OL" id="iId-wA-ZAV"/>
+                        <outlet property="menuItemPriceTextField" destination="K8B-V2-HcE" id="WZS-Rz-jZu"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Dqz-by-jpa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2758.59375" y="47.4609375"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="9tY-dO-4eK">
             <objects>
@@ -200,6 +282,9 @@
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

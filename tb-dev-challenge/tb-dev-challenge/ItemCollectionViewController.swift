@@ -64,6 +64,7 @@ class ItemCollectionViewController: UICollectionViewController {
     }
     
     @objc func addNewMenuItem() {
-        
+        let itemAddEditViewController = self.storyboard?.instantiateViewController(withIdentifier: "itemAddEditViewController") as! ItemAddEditViewController
+        self.navigationController?.pushViewController(itemAddEditViewController, animated: true)
     }
 }
