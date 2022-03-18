@@ -10,8 +10,7 @@ import UIKit
 class ViewController: UICollectionViewController, UINavigationControllerDelegate {
     
     var menuGroups = [MenuGroupElement]()
-    var menuItems = [MenuItem]()
-    var editModeEnabled = false
+    var editModeEnabled: Bool = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -63,8 +62,6 @@ class ViewController: UICollectionViewController, UINavigationControllerDelegate
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let menuGroup = menuGroups[indexPath.item]
-        let vc = ItemCollectionViewController()
- 
         
         if(menuGroup.menuSet == true && editModeEnabled == true) {
             editMenu(indexPath: indexPath)
@@ -115,7 +112,7 @@ extension ViewController {
     }
     
     func renameMenu(indexPath: IndexPath) {
-        var menuGroup = menuGroups[indexPath.row]
+        let menuGroup = menuGroups[indexPath.row]
         
         let ac = UIAlertController(title: "Rename Menu Group", message: nil, preferredStyle: .alert)
         ac.addTextField()

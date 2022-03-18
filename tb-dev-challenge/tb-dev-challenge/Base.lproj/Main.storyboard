@@ -79,7 +79,7 @@
             </objects>
             <point key="canvasLocation" x="1124" y="39"/>
         </scene>
-        <!--Item Collection View Controller-->
+        <!--Title-->
         <scene sceneID="kms-pw-7Gu">
             <objects>
                 <collectionViewController id="iAZ-qv-fJo" customClass="ItemCollectionViewController" customModule="tb_dev_challenge" customModuleProvider="target" sceneMemberID="viewController">
@@ -140,10 +140,8 @@
                                 </collectionViewCellContentView>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="bottomMargin" secondItem="vIN-XC-7yW" secondAttribute="bottom" constant="-8" id="Cg4-gg-udc"/>
-                                    <constraint firstAttribute="trailingMargin" secondItem="vIN-XC-7yW" secondAttribute="trailing" constant="-8" id="D3d-yX-Buo"/>
-                                    <constraint firstItem="vIN-XC-7yW" firstAttribute="leading" secondItem="OzW-ee-IMZ" secondAttribute="leadingMargin" constant="-8" id="Rpp-JR-eat"/>
-                                    <constraint firstItem="vIN-XC-7yW" firstAttribute="top" secondItem="OzW-ee-IMZ" secondAttribute="topMargin" constant="-8" id="WyB-9S-eE7"/>
+                                    <constraint firstItem="vIN-XC-7yW" firstAttribute="top" secondItem="OzW-ee-IMZ" secondAttribute="topMargin" constant="-8" id="5l1-nh-dfW"/>
+                                    <constraint firstItem="vIN-XC-7yW" firstAttribute="leading" secondItem="OzW-ee-IMZ" secondAttribute="leadingMargin" constant="-8" id="GDj-eF-aMd"/>
                                 </constraints>
                                 <connections>
                                     <outlet property="MenuItemImage" destination="ZFU-P2-fPT" id="nbm-La-KJX"/>
@@ -157,7 +155,7 @@
                             <outlet property="delegate" destination="iAZ-qv-fJo" id="wRG-yx-BdY"/>
                         </connections>
                     </collectionView>
-                    <navigationItem key="navigationItem" id="YgS-VS-edi"/>
+                    <navigationItem key="navigationItem" title="Title" id="J0i-Oh-pfJ"/>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nxp-4F-Pp7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -168,7 +166,7 @@
             <objects>
                 <viewController storyboardIdentifier="itemAddEditViewController" id="hL9-KX-lEn" customClass="ItemAddEditViewController" customModule="tb_dev_challenge" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3Rn-Eq-0mq">
-                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="974"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Chocolate Chip Pancake" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zbS-iW-0OL" userLabel="MenuItemNameTextField">
@@ -249,6 +247,7 @@
                             <constraint firstItem="y2o-KV-3EX" firstAttribute="leading" secondItem="MSc-c9-ugR" secondAttribute="leading" constant="221" id="wsi-Fv-8P7"/>
                         </constraints>
                     </view>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <connections>
                         <outlet property="itemImagePreview" destination="y2o-KV-3EX" id="jCj-Lc-fL8"/>
                         <outlet property="itemPriceValidationLabel" destination="t6v-I3-ImY" id="Cj6-KP-uxx"/>

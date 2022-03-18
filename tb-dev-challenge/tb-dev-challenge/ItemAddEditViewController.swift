@@ -7,12 +7,15 @@
 
 import UIKit
 
+
 class ItemAddEditViewController: UIViewController, UINavigationControllerDelegate {
     
     @IBOutlet var menuItemNameTextField: UITextField!
     @IBOutlet var menuItemPriceTextField: UITextField!
     @IBOutlet var itemPriceValidationLabel: UILabel!
     @IBOutlet weak var itemImagePreview: UIImageView!
+    
+    var menuItem = [MenuItem]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,6 +46,13 @@ class ItemAddEditViewController: UIViewController, UINavigationControllerDelegat
     }
     
     @objc func createNewItemForGroup() {
+        
+        let itemName = menuItemNameTextField.text
+        let itemPrice = menuItemPriceTextField.text
+        
+        let addNewItem = MenuItem(itemName: itemName!, itemPrice: itemPrice!, itemImage: "jpg")
+        menuItem.append(addNewItem)
+        
         
         _ = navigationController?.popViewController(animated: true)
         

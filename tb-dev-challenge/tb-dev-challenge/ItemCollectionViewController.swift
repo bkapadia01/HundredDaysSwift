@@ -15,8 +15,9 @@ class ItemCollectionViewController: UICollectionViewController {
     var menuGroup = MenuGroupElement(menuName: "", image: "", menuSet: false, menuItem: [])
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = selection
+        title = menuGroup.menuName
         self.navigationItem.rightBarButtonItem = self.editButtonItem
+        collectionView.reloadData()
     }
 
     
