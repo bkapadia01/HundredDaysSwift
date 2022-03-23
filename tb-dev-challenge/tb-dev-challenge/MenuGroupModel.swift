@@ -13,16 +13,16 @@ import UIKit
 
 // MARK: - MenuGroupElement
 class MenuGroupElement: NSObject, Codable {
-    var menuName: String
-    var image: String
-    var menuSet: Bool
+    var menuGroupName: String
+    var menuGroupImage: String
+    var menuGroupSet: Bool
     var menuItems: [MenuItem]
 
-    init(menuName: String, image: String, menuSet: Bool, menuItem: [MenuItem]) {
-        self.menuName = menuName
-        self.image = image
-        self.menuSet = menuSet
-        self.menuItems = menuItem
+    init(menuGroupName: String, menuGroupImage: String, menuGroupSet: Bool, menuItems: [MenuItem]) {
+        self.menuGroupName = menuGroupName
+        self.menuGroupImage = menuGroupImage
+        self.menuGroupSet = menuGroupSet
+        self.menuItems = menuItems
     }
 }
 

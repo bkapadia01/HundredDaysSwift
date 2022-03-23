@@ -47,11 +47,11 @@ class ViewController: UICollectionViewController, UINavigationControllerDelegate
         }
         
         let menuGroup = menuGroups[indexPath.item]
-        cell.menuGroupName.text = menuGroup.menuName
+        cell.menuGroupName.text = menuGroup.menuGroupName
         
-        let menuImageName = menuGroup.image
+        let menuImageName = menuGroup.menuGroupImage
         let imageAsset = UIImage(named: menuImageName)
-        let path = getDocumentDirectory().appendingPathComponent(menuGroup.image)
+        let path = getDocumentDirectory().appendingPathComponent(menuGroup.menuGroupImage)
         cell.imageView.image = UIImage(contentsOfFile: path.path) ?? imageAsset
         cell.imageView.layer.borderColor = UIColor(white: 0, alpha: 0.3).cgColor
         cell.imageView.layer.borderWidth = 2
@@ -63,13 +63,13 @@ class ViewController: UICollectionViewController, UINavigationControllerDelegate
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let menuGroup = menuGroups[indexPath.item]
         
-        if(menuGroup.menuSet == true && editModeEnabled == true) {
+        if(menuGroup.menuGroupSet == true && editModeEnabled == true) {
             editMenu(indexPath: indexPath)
-        } else if (menuGroup.menuSet == true && editModeEnabled == false) {
+        } else if (menuGroup.menuGroupSet == true && editModeEnabled == false) {
             self.performSegue(withIdentifier: "ItemCollectionViewSegue", sender: self)
 
         }
-        if(menuGroup.menuSet == false) {
+        if(menuGroup.menuGroupSet == false) {
             renameMenu(indexPath: indexPath)
         }
         
@@ -119,8 +119,8 @@ extension ViewController {
         ac.addAction(UIAlertAction(title: "OK", style: .default) {
             [weak self, weak ac] _ in
             guard let newMenuGroupName = ac?.textFields?[0].text else { return }
-            menuGroup.menuName = newMenuGroupName
-            menuGroup.menuSet = true
+            menuGroup.menuGroupName = newMenuGroupName
+            menuGroup.menuGroupSet = true
             self?.collectionView.reloadData()
         })
         

@@ -12,10 +12,10 @@ class ItemCollectionViewController: UICollectionViewController {
     
     var selection: String!
 
-    var menuGroup = MenuGroupElement(menuName: "", image: "", menuSet: false, menuItem: [])
+    var menuGroup = MenuGroupElement(menuGroupName: "", menuGroupImage: "", menuGroupSet: false, menuItems: [])
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = menuGroup.menuName
+        title = menuGroup.menuGroupName
         self.navigationItem.rightBarButtonItem = self.editButtonItem
         collectionView.reloadData()
     }
@@ -37,7 +37,7 @@ class ItemCollectionViewController: UICollectionViewController {
         cell.MenuItemPriceLabel.text = menuItems[indexPath.item].itemPrice
         let menuImageName = menuItems[indexPath.item].itemImage
         let imageAsset = UIImage(named: menuImageName!)
-        let path = getDocumentDirectory().appendingPathComponent(menuGroup.image)
+        let path = getDocumentDirectory().appendingPathComponent(menuGroup.menuGroupImage)
         cell.MenuItemImage.image = UIImage(contentsOfFile: path.path) ?? imageAsset
         cell.MenuItemImage.layer.borderColor = UIColor(white: 0, alpha: 0.3).cgColor
         cell.MenuItemImage.layer.borderWidth = 2

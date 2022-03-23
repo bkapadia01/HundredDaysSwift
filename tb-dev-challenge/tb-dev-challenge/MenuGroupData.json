@@ -1,8 +1,8 @@
 [
     {
-        "menuName": "Menu Group 1",
-        "image": "pancake.jpeg",
-        "menuSet": true,
+        "menuGroupName": "Menu Group 1",
+        "menuGroupImage": "pancake.jpeg",
+        "menuGroupSet": true,
         "menuItems":  [
             {
                 "itemName": "Choclate",
@@ -17,9 +17,9 @@
         ]
     },
     {
-        "menuName": "Menu Group 2",
-        "image": "waffle.jpeg",
-        "menuSet": true,
+        "menuGroupName": "Menu Group 2",
+        "menuGroupImage": "waffle.jpeg",
+        "menuGroupSet": true,
         "menuItems":  [
             {
                 "itemName": "Item 3",
