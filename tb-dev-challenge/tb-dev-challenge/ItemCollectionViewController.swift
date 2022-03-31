@@ -71,7 +71,7 @@ class ItemCollectionViewController: UICollectionViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any? ) {
         if segue.identifier == "MenuItemToDetailSegue" {
 
-            // REVIEW: This is buggy, I am unable to display the correct data for the selected cell. I am thinking of trying to use the commented code below but need to revisit this as it's also not working as expected.
+            // REVIEW: This is buggy, I am unable to display the correct data for the selected cell. I am thinking of trying to use the commented code below but still not resolving the issue so I need to revisit this as it's also not working as expected.
 
             let itemDetailVC = segue.destination as! ItemAddEditViewController
             itemDetailVC.itemSelected = menuGroup?.menuItems?.first
