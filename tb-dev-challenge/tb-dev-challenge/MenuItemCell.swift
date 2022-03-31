@@ -11,5 +11,5 @@ class MenuItemCell: UICollectionViewCell {
     @IBOutlet var MenuItemLabel: UILabel!
     @IBOutlet var MenuItemPriceLabel: UILabel!
     @IBOutlet var MenuItemImage: UIImageView!
-    
+
 }

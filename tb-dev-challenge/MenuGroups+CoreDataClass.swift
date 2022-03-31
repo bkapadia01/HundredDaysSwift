@@ -6,10 +6,12 @@
 //
 //
 
-import Foundation
+import UIKit
 import CoreData
 
 @objc(MenuGroups)
 public class MenuGroups: NSManagedObject {
-
+    var menuItems: [MenuItems]? {
+        return self.ofMenuItem?.allObjects as? [MenuItems]
+    }
 }

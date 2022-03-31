@@ -10,12 +10,5 @@ import UIKit
 class MenuGroupCell: UICollectionViewCell {
     @IBOutlet var imageView: UIImageView!
     @IBOutlet var menuGroupName: UILabel!
-    @IBOutlet var editLabel: UILabel!
-    
-    var isEditing: Bool = false {
-        didSet {
-            editLabel.isHidden = !isEditing
-        }
-        
-    }
+
 }

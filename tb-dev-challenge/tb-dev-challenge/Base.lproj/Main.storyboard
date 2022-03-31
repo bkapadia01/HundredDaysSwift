@@ -44,22 +44,12 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Edit" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YPg-xr-IwT">
-                                            <rect key="frame" x="122" y="171" width="30" height="21"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            <accessibility key="accessibilityConfiguration" identifier="editLabel"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
                                     </subviews>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </collectionViewCellContentView>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <size key="customSize" width="160" height="200"/>
                                 <connections>
-                                    <outlet property="editLabel" destination="YPg-xr-IwT" id="Om9-74-L6P"/>
                                     <outlet property="imageView" destination="iJ8-CR-KYc" id="oCe-yf-OU8"/>
                                     <outlet property="menuGroupName" destination="8pq-Lc-9bt" id="HM0-XV-M7B"/>
                                 </connections>
@@ -77,7 +67,7 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aon-HY-M7Y" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1124" y="39"/>
+            <point key="canvasLocation" x="1123.4375" y="38.671875"/>
         </scene>
         <!--Title-->
         <scene sceneID="kms-pw-7Gu">
@@ -140,8 +130,8 @@
                                 </collectionViewCellContentView>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstItem="vIN-XC-7yW" firstAttribute="top" secondItem="OzW-ee-IMZ" secondAttribute="topMargin" constant="-8" id="5l1-nh-dfW"/>
-                                    <constraint firstItem="vIN-XC-7yW" firstAttribute="leading" secondItem="OzW-ee-IMZ" secondAttribute="leadingMargin" constant="-8" id="GDj-eF-aMd"/>
+                                    <constraint firstItem="vIN-XC-7yW" firstAttribute="top" secondItem="OzW-ee-IMZ" secondAttribute="topMargin" constant="-8" id="Y4k-uO-1o7"/>
+                                    <constraint firstItem="vIN-XC-7yW" firstAttribute="leading" secondItem="OzW-ee-IMZ" secondAttribute="leadingMargin" constant="-8" id="lsS-xn-drj"/>
                                 </constraints>
                                 <connections>
                                     <outlet property="MenuItemImage" destination="ZFU-P2-fPT" id="nbm-La-KJX"/>
@@ -156,10 +146,13 @@
                         </connections>
                     </collectionView>
                     <navigationItem key="navigationItem" title="Title" id="J0i-Oh-pfJ"/>
+                    <connections>
+                        <segue destination="hL9-KX-lEn" kind="show" identifier="MenuItemToDetailSegue" id="pJq-tW-rgr"/>
+                    </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nxp-4F-Pp7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1950" y="38.671875"/>
+            <point key="canvasLocation" x="1823" y="16"/>
         </scene>
         <!--Item Add Edit View Controller-->
         <scene sceneID="n3o-hM-Iek">
@@ -193,21 +186,9 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add New Item" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QBu-1r-3yF">
-                                <rect key="frame" x="307" y="100" width="154" height="27"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="27" id="eVY-oz-GWO"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
-                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="y2o-KV-3EX">
-                                <rect key="frame" x="224" y="471" width="361" height="281"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="y2o-KV-3EX">
+                                <rect key="frame" x="221" y="471" width="240" height="231"/>
                                 <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="281" id="eYj-OR-YDb"/>
-                                </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Invalid - Enter Numeric Values Only" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t6v-I3-ImY">
                                 <rect key="frame" x="226" y="330" width="227.5" height="17"/>
@@ -215,6 +196,24 @@
                                 <color key="textColor" systemColor="systemRedColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Menu Item" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QBu-1r-3yF">
+                                <rect key="frame" x="338" y="105" width="92" height="27"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="27" id="DgZ-VI-AT2"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9jR-He-hlh">
+                                <rect key="frame" x="221" y="776" width="65" height="34"/>
+                                <color key="backgroundColor" systemColor="systemRedColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="DELETE">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="MSc-c9-ugR"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -222,6 +221,7 @@
                             <constraint firstItem="K8B-V2-HcE" firstAttribute="leading" secondItem="hvb-Sy-Ri2" secondAttribute="trailing" constant="-77" id="1mi-jx-Z4C"/>
                             <constraint firstItem="y2o-KV-3EX" firstAttribute="top" secondItem="t6v-I3-ImY" secondAttribute="bottom" constant="124" id="45R-pC-L6r"/>
                             <constraint firstItem="K8B-V2-HcE" firstAttribute="top" secondItem="hvb-Sy-Ri2" secondAttribute="bottom" constant="8" symbolic="YES" id="5pU-SN-Too"/>
+                            <constraint firstItem="9jR-He-hlh" firstAttribute="leading" secondItem="MSc-c9-ugR" secondAttribute="leading" constant="221" id="Dww-Bk-FwF"/>
                             <constraint firstItem="zbS-iW-0OL" firstAttribute="leading" secondItem="hvb-Sy-Ri2" secondAttribute="leading" id="FaS-xZ-gEq"/>
                             <constraint firstItem="zbS-iW-0OL" firstAttribute="leading" secondItem="p7w-a0-Vo7" secondAttribute="trailing" constant="-83" id="Fyp-EX-0kn"/>
                             <constraint firstItem="zbS-iW-0OL" firstAttribute="leading" secondItem="K8B-V2-HcE" secondAttribute="leading" id="GGx-9t-a9e"/>
@@ -235,20 +235,24 @@
                             <constraint firstItem="zbS-iW-0OL" firstAttribute="trailing" secondItem="K8B-V2-HcE" secondAttribute="trailing" id="X8n-Fa-6fU"/>
                             <constraint firstItem="t6v-I3-ImY" firstAttribute="leading" secondItem="MSc-c9-ugR" secondAttribute="leading" constant="226" id="Xol-w9-GsU"/>
                             <constraint firstItem="MSc-c9-ugR" firstAttribute="bottom" secondItem="y2o-KV-3EX" secondAttribute="bottom" constant="272" id="cEb-xg-vjC"/>
-                            <constraint firstItem="MSc-c9-ugR" firstAttribute="trailing" secondItem="QBu-1r-3yF" secondAttribute="trailing" constant="307" id="ein-G6-B24"/>
-                            <constraint firstItem="zbS-iW-0OL" firstAttribute="top" secondItem="QBu-1r-3yF" secondAttribute="bottom" constant="51" id="hDl-lw-dCs"/>
                             <constraint firstItem="y2o-KV-3EX" firstAttribute="top" secondItem="MSc-c9-ugR" secondAttribute="top" constant="471" id="hiY-3k-Wag"/>
+                            <constraint firstItem="QBu-1r-3yF" firstAttribute="leading" secondItem="MSc-c9-ugR" secondAttribute="leading" constant="338" id="ie5-zQ-Ej8"/>
                             <constraint firstItem="K8B-V2-HcE" firstAttribute="leading" secondItem="y2o-KV-3EX" secondAttribute="trailing" constant="-235" id="j9s-Ga-8Rl"/>
-                            <constraint firstItem="QBu-1r-3yF" firstAttribute="top" secondItem="MSc-c9-ugR" secondAttribute="top" constant="100" id="kA4-l1-94r"/>
                             <constraint firstItem="zbS-iW-0OL" firstAttribute="leading" secondItem="p7w-a0-Vo7" secondAttribute="leading" id="kRz-BK-cge"/>
                             <constraint firstItem="t6v-I3-ImY" firstAttribute="leading" secondItem="K8B-V2-HcE" secondAttribute="leading" id="lEQ-g6-oCZ"/>
+                            <constraint firstItem="QBu-1r-3yF" firstAttribute="top" secondItem="MSc-c9-ugR" secondAttribute="top" constant="105" id="mEG-HU-MCF"/>
                             <constraint firstItem="zbS-iW-0OL" firstAttribute="leading" secondItem="MSc-c9-ugR" secondAttribute="leading" constant="226" id="mXC-9i-nNY"/>
-                            <constraint firstItem="QBu-1r-3yF" firstAttribute="centerX" secondItem="MSc-c9-ugR" secondAttribute="centerX" id="w8s-ik-Xbd"/>
+                            <constraint firstItem="MSc-c9-ugR" firstAttribute="trailing" secondItem="9jR-He-hlh" secondAttribute="trailing" constant="482" id="stT-66-Lz4"/>
+                            <constraint firstItem="MSc-c9-ugR" firstAttribute="bottom" secondItem="9jR-He-hlh" secondAttribute="bottom" constant="164" id="txw-s6-Qci"/>
+                            <constraint firstItem="QBu-1r-3yF" firstAttribute="centerX" secondItem="3Rn-Eq-0mq" secondAttribute="centerX" id="vs2-bI-jtU"/>
                             <constraint firstItem="y2o-KV-3EX" firstAttribute="leading" secondItem="MSc-c9-ugR" secondAttribute="leading" constant="221" id="wsi-Fv-8P7"/>
+                            <constraint firstItem="9jR-He-hlh" firstAttribute="top" secondItem="y2o-KV-3EX" secondAttribute="bottom" constant="74" id="zR5-gi-iTv"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="0MI-Yx-SVy"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <connections>
+                        <outlet property="deleteItemButton" destination="9jR-He-hlh" id="aa1-6a-k1T"/>
                         <outlet property="itemImagePreview" destination="y2o-KV-3EX" id="jCj-Lc-fL8"/>
                         <outlet property="itemPriceValidationLabel" destination="t6v-I3-ImY" id="Cj6-KP-uxx"/>
                         <outlet property="menuItemNameTextField" destination="zbS-iW-0OL" id="iId-wA-ZAV"/>
