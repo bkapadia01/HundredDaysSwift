@@ -71,10 +71,15 @@ class ItemCollectionViewController: UICollectionViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any? ) {
         if segue.identifier == "MenuItemToDetailSegue" {
 
-            // REVIEW: This is buggy, I am unable to display the correct data for the selected cell. I am thinking of trying to use the commented code below but still not resolving the issue so I need to revisit this as it's also not working as expected.
-
+            // REVIEW: This is buggy, I am unable to display the correct data for the selected cell. I am thinking of trying to use the commented code below but still not resolving the issue so I need to revisit this.
+            print(collectionView.indexPathsForSelectedItems)
+            let selectedIndexPath = sender as? NSIndexPath
             let itemDetailVC = segue.destination as! ItemAddEditViewController
-            itemDetailVC.itemSelected = menuGroup?.menuItems?.first
+
+            itemDetailVC.itemSelected = menuGroupItems![selectedIndexPath!.item]
+
+//            itemDetailVC.itemSelected = menuGroup?.menuItems?.last
+//            print(menuGroup?.menuItems?.last)
 
             //        let selectedItem: MenuItems!
             //        let indexPath = collectionView.indexPathsForSelectedItems?.last?.row
@@ -86,7 +91,9 @@ class ItemCollectionViewController: UICollectionViewController {
     func fetchMenuGroupItems() {
         do {
             let request = MenuItems.fetchRequest() as NSFetchRequest<MenuItems>
+            request.sortDescriptors = [NSSortDescriptor(key: "created", ascending: true)]
             self.menuGroupItems = try context.fetch(request)
+
             DispatchQueue.main.async {
                 self.collectionView.reloadData()
             }
