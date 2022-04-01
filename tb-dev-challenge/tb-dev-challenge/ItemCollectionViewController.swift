@@ -10,7 +10,6 @@ import CoreData
 
 class ItemCollectionViewController: UICollectionViewController {
 
-    var selection: String!
     var menuGroupItems: [MenuItems]?
     var menuGroup: MenuGroups?
 
@@ -27,6 +26,7 @@ class ItemCollectionViewController: UICollectionViewController {
     }
 
     override func viewWillAppear(_ animated: Bool) {
+        fetchMenuGroupItems()
         self.collectionView.reloadData()
     }
 
@@ -70,36 +70,26 @@ class ItemCollectionViewController: UICollectionViewController {
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any? ) {
         if segue.identifier == "MenuItemToDetailSegue" {
-
-            // REVIEW: This is buggy, I am unable to display the correct data for the selected cell. I am thinking of trying to use the commented code below but still not resolving the issue so I need to revisit this.
-            print(collectionView.indexPathsForSelectedItems)
+            // REVIEW: This fixes the selected item not being currecly populated in the edit view controller but it causes a crash when you try to edit a newly created item
             let selectedIndexPath = sender as? NSIndexPath
             let itemDetailVC = segue.destination as! ItemAddEditViewController
-
             itemDetailVC.itemSelected = menuGroupItems![selectedIndexPath!.item]
-
-//            itemDetailVC.itemSelected = menuGroup?.menuItems?.last
-//            print(menuGroup?.menuItems?.last)
-
-            //        let selectedItem: MenuItems!
-            //        let indexPath = collectionView.indexPathsForSelectedItems?.last?.row
-            //        selectedItem = menuGroupItems![indexPath!]
-            //        itemDetailVC.itemSelected = selectedItem
-            //        collectionView.deselectItem(at: self.collectionView.ind , animated: true)
         }
     }
     func fetchMenuGroupItems() {
         do {
-            let request = MenuItems.fetchRequest() as NSFetchRequest<MenuItems>
-            request.sortDescriptors = [NSSortDescriptor(key: "created", ascending: true)]
-            self.menuGroupItems = try context.fetch(request)
+            let fetchRequest =
+                 NSFetchRequest<NSManagedObject>(entityName: "MenuItems")
+             let sort = NSSortDescriptor(key: "itemDateCreated", ascending: false)
+             fetchRequest.sortDescriptors = [sort]
+            do {
+                _ = try context.fetch(fetchRequest)
 
-            DispatchQueue.main.async {
-                self.collectionView.reloadData()
-            }
-        } catch {
-            print("Unable to fetch menu group data")
+               } catch let error as NSError {
+                   print("Could not fetch. \(error), \(error.userInfo)")
+               }
         }
+
     }
 
     func getDocumentDirectory() -> URL {

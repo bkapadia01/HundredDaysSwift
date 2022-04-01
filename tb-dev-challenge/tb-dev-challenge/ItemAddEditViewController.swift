@@ -74,7 +74,7 @@ class ItemAddEditViewController: UIViewController, UINavigationControllerDelegat
             let itemPrice = Double(itemPriceString)
             let itemImage = imageSelected
 
-            if let addNewItem = MenuItems(itemImage: itemImage, itemName: itemName, itemPrice: itemPrice) {
+            if let addNewItem = MenuItems(itemImage: itemImage, itemName: itemName, itemPrice: itemPrice, itemDateCreated: Date()) {
                 menuGroup?.addToOfMenuItem(addNewItem)
 
                 do {
@@ -90,7 +90,6 @@ class ItemAddEditViewController: UIViewController, UINavigationControllerDelegat
             let itemPriceString = menuItemPriceTextField.text ?? ""
             let itemPrice = Double(itemPriceString)
             let itemImage = imageSelected
-
             let appDelegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
             let context: NSManagedObjectContext = appDelegate.persistentContainer.viewContext
             let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "MenuItems")

@@ -13,7 +13,7 @@ import CoreData
 public class MenuItems: NSManagedObject {
 
     // Review: Using convenience to make use of init much simpler and can use self instead of super
-    convenience init?(itemImage: String?, itemName: String?, itemPrice: Double?) {
+    convenience init?(itemImage: String?, itemName: String?, itemPrice: Double?, itemDateCreated: Date?) {
         let appDelegate = UIApplication.shared.delegate as? AppDelegate
 
         guard let context = appDelegate?.persistentContainer.viewContext else {
@@ -24,5 +24,6 @@ public class MenuItems: NSManagedObject {
         self.itemImage = itemImage
         self.itemName = itemName
         self.itemPrice = itemPrice!
+        self.itemDateCreated = itemDateCreated
     }
 }
