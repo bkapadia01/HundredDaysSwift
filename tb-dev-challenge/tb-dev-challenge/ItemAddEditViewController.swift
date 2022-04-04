@@ -137,9 +137,7 @@ extension ItemAddEditViewController: UITextFieldDelegate {
         }
 
         let priceTextField = (menuItemPriceTextField.text! as String)
-        // REVIEW: Currently this takes in more than just 2 decimal places for the dollar value. I would have to possible use a another regex like validation to ensure that only dollar values are used.
         if Double(priceTextField) != nil {
-            // Text field converted to an Int
             self.navigationItem.rightBarButtonItem?.isEnabled = true
             itemPriceValidationLabel.isHidden = true
         } else {
