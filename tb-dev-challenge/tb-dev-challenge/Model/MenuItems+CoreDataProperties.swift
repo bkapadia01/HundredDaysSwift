@@ -9,7 +9,6 @@
 import Foundation
 import CoreData
 
-
 extension MenuItems {
 
     @nonobjc public class func fetchRequest() -> NSFetchRequest<MenuItems> {
@@ -24,6 +23,6 @@ extension MenuItems {
 
 }
 
-extension MenuItems : Identifiable {
+extension MenuItems: Identifiable {
 
 }

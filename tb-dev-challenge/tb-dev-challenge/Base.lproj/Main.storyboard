@@ -32,20 +32,30 @@
                                     <rect key="frame" x="0.0" y="0.0" width="160" height="200"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iJ8-CR-KYc">
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="iJ8-CR-KYc">
                                             <rect key="frame" x="10" y="10" width="141" height="120"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" secondItem="iJ8-CR-KYc" secondAttribute="height" multiplier="47:40" id="7MZ-ZE-xwP"/>
+                                                <constraint firstAttribute="height" constant="120" id="adl-aq-wOT"/>
+                                                <constraint firstAttribute="width" constant="141" id="ru0-i2-fzR"/>
+                                            </constraints>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8pq-Lc-9bt">
-                                            <rect key="frame" x="10" y="134" width="140" height="40"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8pq-Lc-9bt">
+                                            <rect key="frame" x="54" y="134" width="52.5" height="40"/>
                                             <fontDescription key="fontDescription" name="HiraginoSans-W6" family="Hiragino Sans" pointSize="18"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <constraints>
+                                        <constraint firstItem="8pq-Lc-9bt" firstAttribute="top" secondItem="iJ8-CR-KYc" secondAttribute="bottom" constant="4" id="7Tx-mn-U2e"/>
+                                        <constraint firstAttribute="bottom" secondItem="8pq-Lc-9bt" secondAttribute="bottom" constant="26" id="SEQ-yX-gfm"/>
+                                        <constraint firstItem="iJ8-CR-KYc" firstAttribute="top" secondItem="lbe-jB-cvO" secondAttribute="top" constant="10" id="gem-W5-Mq5"/>
+                                        <constraint firstItem="8pq-Lc-9bt" firstAttribute="centerX" secondItem="lbe-jB-cvO" secondAttribute="centerX" id="iK3-Ey-P62"/>
+                                        <constraint firstItem="iJ8-CR-KYc" firstAttribute="leading" secondItem="lbe-jB-cvO" secondAttribute="leading" constant="10" id="lfJ-qq-O8N"/>
+                                    </constraints>
                                 </collectionViewCellContentView>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <size key="customSize" width="160" height="200"/>
@@ -130,8 +140,8 @@
                                 </collectionViewCellContentView>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstItem="vIN-XC-7yW" firstAttribute="top" secondItem="OzW-ee-IMZ" secondAttribute="topMargin" constant="-8" id="Y4k-uO-1o7"/>
-                                    <constraint firstItem="vIN-XC-7yW" firstAttribute="leading" secondItem="OzW-ee-IMZ" secondAttribute="leadingMargin" constant="-8" id="lsS-xn-drj"/>
+                                    <constraint firstItem="vIN-XC-7yW" firstAttribute="leading" secondItem="OzW-ee-IMZ" secondAttribute="leadingMargin" constant="-8" id="WU1-Ov-Ffy"/>
+                                    <constraint firstItem="vIN-XC-7yW" firstAttribute="top" secondItem="OzW-ee-IMZ" secondAttribute="topMargin" constant="-8" id="sNu-XU-MuR"/>
                                 </constraints>
                                 <connections>
                                     <outlet property="MenuItemImage" destination="ZFU-P2-fPT" id="nbm-La-KJX"/>
@@ -152,7 +162,7 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nxp-4F-Pp7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1823" y="16"/>
+            <point key="canvasLocation" x="1822.65625" y="15.820312499999998"/>
         </scene>
         <!--Item Add Edit View Controller-->
         <scene sceneID="n3o-hM-Iek">

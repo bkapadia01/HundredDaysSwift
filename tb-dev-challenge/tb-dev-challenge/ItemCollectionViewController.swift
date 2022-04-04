@@ -22,6 +22,7 @@ class ItemCollectionViewController: UICollectionViewController {
             menuGroupItems = allMenuItems
         }
         self.navigationItem.rightBarButtonItem = self.editButtonItem
+        self.collectionView.reloadData()
         fetchMenuGroupItems()
     }
 
@@ -38,11 +39,12 @@ class ItemCollectionViewController: UICollectionViewController {
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let item = collectionView.dequeueReusableCell(withReuseIdentifier: "ItemCell", for: indexPath) as? MenuItemCell else { fatalError("Unable to dequeue MenuItemCell") }
-        let menuItems = menuGroup?.menuItems?[indexPath.item]
+        let menuItems = menuGroup?.menuItems?[indexPath.row]
         item.MenuItemLabel.text = menuItems?.itemName
-        item.MenuItemPriceLabel.text = "\(menuItems?.itemPrice ?? 0.0)"
-        let menuImageName = menuItems?.itemImage
-        let imageAsset = UIImage(named: menuImageName!)
+        let itemPrceToTwoDecimalPlaces = String(format: "%.2f", menuItems?.itemPrice as! CVarArg)
+        item.MenuItemPriceLabel.text = "$ \( itemPrceToTwoDecimalPlaces )"
+        let menuImageName = menuItems?.itemImage ?? ""
+        let imageAsset = UIImage(named: menuImageName)
         let path = getDocumentDirectory().appendingPathComponent((menuItems?.itemImage)!)
         item.MenuItemImage.image = UIImage(contentsOfFile: path.path) ?? imageAsset
         item.MenuItemImage.layer.borderColor = UIColor(white: 0, alpha: 0.3).cgColor
@@ -97,6 +99,17 @@ class ItemCollectionViewController: UICollectionViewController {
         return paths[0]
     }
 
+
+    @objc func addNewMenuItem() {
+        let itemAddEditViewController = self.storyboard?.instantiateViewController(withIdentifier: "itemAddEditViewController") as! ItemAddEditViewController
+
+        itemAddEditViewController.menuGroup = menuGroup
+        self.navigationController?.pushViewController(itemAddEditViewController, animated: true)
+    }
+}
+
+extension ItemCollectionViewController {
+    
     override func setEditing(_ editing: Bool, animated: Bool) {
         super.setEditing(editing, animated: animated)
         if self.isEditing == true {
@@ -107,12 +120,5 @@ class ItemCollectionViewController: UICollectionViewController {
             self.navigationItem.leftBarButtonItem = nil
 
         }
-    }
-
-    @objc func addNewMenuItem() {
-        let itemAddEditViewController = self.storyboard?.instantiateViewController(withIdentifier: "itemAddEditViewController") as! ItemAddEditViewController
-
-        itemAddEditViewController.menuGroup = menuGroup
-        self.navigationController?.pushViewController(itemAddEditViewController, animated: true)
     }
 }

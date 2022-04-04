@@ -9,8 +9,6 @@
 /* Begin PBXBuildFile section */
 		C353E2E627E034220015DDBF /* ItemAddEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C353E2E527E034220015DDBF /* ItemAddEditViewController.swift */; };
 		C3634C9427F15203001CEDB6 /* MenuGroupCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3634C9327F15203001CEDB6 /* MenuGroupCell.swift */; };
-		C3DC0CAE27F405CF00FB101F /* MenuItems+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3DC0CAA27F405CF00FB101F /* MenuItems+CoreDataClass.swift */; };
-		C3DC0CAF27F405CF00FB101F /* MenuItems+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3DC0CAB27F405CF00FB101F /* MenuItems+CoreDataProperties.swift */; };
 		C3DC0CB027F405CF00FB101F /* MenuGroups+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3DC0CAC27F405CF00FB101F /* MenuGroups+CoreDataClass.swift */; };
 		C3DC0CB127F405CF00FB101F /* MenuGroups+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3DC0CAD27F405CF00FB101F /* MenuGroups+CoreDataProperties.swift */; };
 		C3E4FD5227C1A3A1007A7AEF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3E4FD5127C1A3A1007A7AEF /* AppDelegate.swift */; };
@@ -22,13 +20,13 @@
 		C3E4FD6127C1A3A4007A7AEF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C3E4FD5F27C1A3A4007A7AEF /* LaunchScreen.storyboard */; };
 		C3E4FD7F27CB4137007A7AEF /* ItemCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3E4FD7E27CB4137007A7AEF /* ItemCollectionViewController.swift */; };
 		C3E4FD8127CB44F0007A7AEF /* MenuItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3E4FD8027CB44F0007A7AEF /* MenuItemCell.swift */; };
+		C3EF4D2727F6C3640069C2BA /* MenuItems+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3EF4D2527F6C3640069C2BA /* MenuItems+CoreDataClass.swift */; };
+		C3EF4D2827F6C3640069C2BA /* MenuItems+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3EF4D2627F6C3640069C2BA /* MenuItems+CoreDataProperties.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		C353E2E527E034220015DDBF /* ItemAddEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemAddEditViewController.swift; sourceTree = "<group>"; };
 		C3634C9327F15203001CEDB6 /* MenuGroupCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuGroupCell.swift; sourceTree = "<group>"; };
-		C3DC0CAA27F405CF00FB101F /* MenuItems+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "MenuItems+CoreDataClass.swift"; path = "../../MenuItems+CoreDataClass.swift"; sourceTree = "<group>"; };
-		C3DC0CAB27F405CF00FB101F /* MenuItems+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "MenuItems+CoreDataProperties.swift"; path = "../../MenuItems+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		C3DC0CAC27F405CF00FB101F /* MenuGroups+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "MenuGroups+CoreDataClass.swift"; path = "../../MenuGroups+CoreDataClass.swift"; sourceTree = "<group>"; };
 		C3DC0CAD27F405CF00FB101F /* MenuGroups+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "MenuGroups+CoreDataProperties.swift"; path = "../../MenuGroups+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		C3E4FD4E27C1A3A1007A7AEF /* tb-dev-challenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "tb-dev-challenge.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -42,6 +40,8 @@
 		C3E4FD6227C1A3A4007A7AEF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C3E4FD7E27CB4137007A7AEF /* ItemCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCollectionViewController.swift; sourceTree = "<group>"; };
 		C3E4FD8027CB44F0007A7AEF /* MenuItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItemCell.swift; sourceTree = "<group>"; };
+		C3EF4D2527F6C3640069C2BA /* MenuItems+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MenuItems+CoreDataClass.swift"; sourceTree = "<group>"; };
+		C3EF4D2627F6C3640069C2BA /* MenuItems+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MenuItems+CoreDataProperties.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,8 +58,8 @@
 		C381018C27EAC25E0084377B /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				C3DC0CAA27F405CF00FB101F /* MenuItems+CoreDataClass.swift */,
-				C3DC0CAB27F405CF00FB101F /* MenuItems+CoreDataProperties.swift */,
+				C3EF4D2527F6C3640069C2BA /* MenuItems+CoreDataClass.swift */,
+				C3EF4D2627F6C3640069C2BA /* MenuItems+CoreDataProperties.swift */,
 				C3DC0CAC27F405CF00FB101F /* MenuGroups+CoreDataClass.swift */,
 				C3DC0CAD27F405CF00FB101F /* MenuGroups+CoreDataProperties.swift */,
 			);
@@ -184,7 +184,8 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nif which swiftlint >/dev/null; then\n    echo \"SwiftLint is installed\"\n    swiftlint autocorrect\nelse\n    echo \"SwiftLint is not installed\"\nfi\n";
+			shellScript = "
+";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -196,15 +197,15 @@
 				C3E4FD5627C1A3A1007A7AEF /* ViewController.swift in Sources */,
 				C3E4FD5227C1A3A1007A7AEF /* AppDelegate.swift in Sources */,
 				C3DC0CB127F405CF00FB101F /* MenuGroups+CoreDataProperties.swift in Sources */,
+				C3EF4D2827F6C3640069C2BA /* MenuItems+CoreDataProperties.swift in Sources */,
 				C3DC0CB027F405CF00FB101F /* MenuGroups+CoreDataClass.swift in Sources */,
 				C3E4FD7F27CB4137007A7AEF /* ItemCollectionViewController.swift in Sources */,
 				C3E4FD5427C1A3A1007A7AEF /* SceneDelegate.swift in Sources */,
 				C353E2E627E034220015DDBF /* ItemAddEditViewController.swift in Sources */,
-				C3DC0CAF27F405CF00FB101F /* MenuItems+CoreDataProperties.swift in Sources */,
-				C3DC0CAE27F405CF00FB101F /* MenuItems+CoreDataClass.swift in Sources */,
 				C3E4FD8127CB44F0007A7AEF /* MenuItemCell.swift in Sources */,
 				C3E4FD5C27C1A3A2007A7AEF /* tb_dev_challenge.xcdatamodeld in Sources */,
 				C3634C9427F15203001CEDB6 /* MenuGroupCell.swift in Sources */,
+				C3EF4D2727F6C3640069C2BA /* MenuItems+CoreDataClass.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -16,7 +16,7 @@ class ItemAddEditViewController: UIViewController, UINavigationControllerDelegat
     @IBOutlet weak var deleteItemButton: UIButton!
 
     var menuGroup: MenuGroups?
-    var imageSelected: String = ""
+    var imageSelected: String? = ""
     var itemSelected: MenuItems?
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
 
@@ -28,7 +28,8 @@ class ItemAddEditViewController: UIViewController, UINavigationControllerDelegat
             deleteItemButton.isHidden = false
             deleteItemButton.addTarget(self, action: #selector(deleteItem), for: .touchUpInside)
             menuItemNameTextField.text = itemSelected?.itemName
-            menuItemPriceTextField.text = "\(itemSelected?.itemPrice ?? 0.0)"
+            menuItemPriceTextField.text = "\(itemSelected?.itemPrice ?? 0.00)"
+            itemImagePreview.image = itemSelected?.itemImage?.toImage()
         }
 
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(createNewItemForGroup))
@@ -89,19 +90,11 @@ class ItemAddEditViewController: UIViewController, UINavigationControllerDelegat
             let itemName = menuItemNameTextField.text
             let itemPriceString = menuItemPriceTextField.text ?? ""
             let itemPrice = Double(itemPriceString)
-            let itemImage = imageSelected
-            let appDelegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
-            let context: NSManagedObjectContext = appDelegate.persistentContainer.viewContext
-            let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "MenuItems")
-
-            // REVIEW: Update does not work properly, it updates the incorrect menu item in the wrong group. I plan on resolving this by understanding how fetchRequest works and image is not being update at the moment as well.
+            let itemImage = imageSelected!
             do {
-                let results = try context.fetch(fetchRequest) as? [NSManagedObject]
-                results?[0].setValue(itemName, forKey: "itemName")
-                results?[0].setValue(itemImage, forKey: "itemImage")
-                results?[0].setValue(itemPrice, forKey: "itemPrice")
-                results?[0].setValue(itemPrice, forKey: "itemPrice")
-
+                itemSelected?.setValue(itemName, forKey: "itemName")
+                itemSelected?.setValue(itemImage, forKey: "itemImage")
+                itemSelected?.setValue(itemPrice, forKey: "itemPrice")
                 try self.context.save()
 
                 _ = navigationController?.popViewController(animated: true)
@@ -178,5 +171,14 @@ extension ItemAddEditViewController: UIImagePickerControllerDelegate {
         let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
         return paths[0]
 
+    }
+}
+
+extension String {
+    func toImage() -> UIImage? {
+        if let data = Data(base64Encoded: self, options: .ignoreUnknownCharacters){
+            return UIImage(data: data)
+        }
+        return nil
     }
 }
