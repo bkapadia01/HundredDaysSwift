@@ -9,10 +9,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Menu Group View Controller-->
         <scene sceneID="dxD-zE-KS5">
             <objects>
-                <collectionViewController id="JRK-bk-4TJ" customClass="ViewController" customModule="tb_dev_challenge" customModuleProvider="target" sceneMemberID="viewController">
+                <collectionViewController id="JRK-bk-4TJ" customClass="MenuGroupViewController" customModule="tb_dev_challenge" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="5Hg-Zr-Dsl">
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -140,13 +140,13 @@
                                 </collectionViewCellContentView>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstItem="vIN-XC-7yW" firstAttribute="leading" secondItem="OzW-ee-IMZ" secondAttribute="leadingMargin" constant="-8" id="WU1-Ov-Ffy"/>
-                                    <constraint firstItem="vIN-XC-7yW" firstAttribute="top" secondItem="OzW-ee-IMZ" secondAttribute="topMargin" constant="-8" id="sNu-XU-MuR"/>
+                                    <constraint firstItem="vIN-XC-7yW" firstAttribute="top" secondItem="OzW-ee-IMZ" secondAttribute="topMargin" constant="-8" id="ZJo-dz-OtF"/>
+                                    <constraint firstItem="vIN-XC-7yW" firstAttribute="leading" secondItem="OzW-ee-IMZ" secondAttribute="leadingMargin" constant="-8" id="ebM-dt-fIK"/>
                                 </constraints>
                                 <connections>
-                                    <outlet property="MenuItemImage" destination="ZFU-P2-fPT" id="nbm-La-KJX"/>
-                                    <outlet property="MenuItemLabel" destination="U8q-sg-uTt" id="3tw-2S-T8d"/>
-                                    <outlet property="MenuItemPriceLabel" destination="cSk-ID-1gl" id="fb9-bX-8Im"/>
+                                    <outlet property="menuItemImage" destination="ZFU-P2-fPT" id="nbm-La-KJX"/>
+                                    <outlet property="menuItemLabel" destination="U8q-sg-uTt" id="3tw-2S-T8d"/>
+                                    <outlet property="menuItemPriceLabel" destination="cSk-ID-1gl" id="fb9-bX-8Im"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>

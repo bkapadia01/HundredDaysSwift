@@ -8,8 +8,8 @@
 import UIKit
 
 class MenuItemCell: UICollectionViewCell {
-    @IBOutlet var MenuItemLabel: UILabel!
-    @IBOutlet var MenuItemPriceLabel: UILabel!
-    @IBOutlet var MenuItemImage: UIImageView!
+    @IBOutlet var menuItemLabel: UILabel!
+    @IBOutlet var menuItemPriceLabel: UILabel!
+    @IBOutlet var menuItemImage: UIImageView!
 
 }

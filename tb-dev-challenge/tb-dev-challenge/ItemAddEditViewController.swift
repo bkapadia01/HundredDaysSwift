@@ -56,14 +56,15 @@ class ItemAddEditViewController: UIViewController, UINavigationControllerDelegat
     }
 
     @objc func deleteItem() {
-        let menuItemToDelete = self.itemSelected
-        self.context.delete(menuItemToDelete!)
+        guard let menuItemToDelete = self.itemSelected else { return }
+        self.context.delete(menuItemToDelete)
 
         do {
             try self.context.save()
         } catch {
             print("Failed to save data")
         }
+        self.itemSelected = nil
         _ = navigationController?.popViewController(animated: true)
     }
 
@@ -90,7 +91,7 @@ class ItemAddEditViewController: UIViewController, UINavigationControllerDelegat
             let itemName = menuItemNameTextField.text
             let itemPriceString = menuItemPriceTextField.text ?? ""
             let itemPrice = Double(itemPriceString)
-            let itemImage = imageSelected!
+            let itemImage = imageSelected
             do {
                 itemSelected?.setValue(itemName, forKey: "itemName")
                 itemSelected?.setValue(itemImage, forKey: "itemImage")
@@ -127,16 +128,16 @@ extension ItemAddEditViewController: UITextFieldDelegate {
     }
 
     @objc func textFieldDidChange(_ textField: UITextField) {
-        guard !menuItemNameTextField.text!.isEmpty else {
+        guard !(menuItemNameTextField.text?.isEmpty ?? true) else {
             self.navigationItem.rightBarButtonItem?.isEnabled = false
             return
         }
-        guard !menuItemPriceTextField.text!.isEmpty else {
+        guard !(menuItemPriceTextField.text?.isEmpty ?? true) else {
             self.navigationItem.rightBarButtonItem?.isEnabled = false
             return
         }
 
-        let priceTextField = (menuItemPriceTextField.text! as String)
+        let priceTextField = ((menuItemPriceTextField.text ?? "0.00") as String)
         if Double(priceTextField) != nil {
             self.navigationItem.rightBarButtonItem?.isEnabled = true
             itemPriceValidationLabel.isHidden = true

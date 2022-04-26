@@ -13,7 +13,7 @@
 		C3DC0CB127F405CF00FB101F /* MenuGroups+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3DC0CAD27F405CF00FB101F /* MenuGroups+CoreDataProperties.swift */; };
 		C3E4FD5227C1A3A1007A7AEF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3E4FD5127C1A3A1007A7AEF /* AppDelegate.swift */; };
 		C3E4FD5427C1A3A1007A7AEF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3E4FD5327C1A3A1007A7AEF /* SceneDelegate.swift */; };
-		C3E4FD5627C1A3A1007A7AEF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3E4FD5527C1A3A1007A7AEF /* ViewController.swift */; };
+		C3E4FD5627C1A3A1007A7AEF /* MenuGroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3E4FD5527C1A3A1007A7AEF /* MenuGroupViewController.swift */; };
 		C3E4FD5927C1A3A1007A7AEF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C3E4FD5727C1A3A1007A7AEF /* Main.storyboard */; };
 		C3E4FD5C27C1A3A2007A7AEF /* tb_dev_challenge.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C3E4FD5A27C1A3A2007A7AEF /* tb_dev_challenge.xcdatamodeld */; };
 		C3E4FD5E27C1A3A4007A7AEF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C3E4FD5D27C1A3A4007A7AEF /* Assets.xcassets */; };
@@ -32,7 +32,7 @@
 		C3E4FD4E27C1A3A1007A7AEF /* tb-dev-challenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "tb-dev-challenge.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3E4FD5127C1A3A1007A7AEF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C3E4FD5327C1A3A1007A7AEF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		C3E4FD5527C1A3A1007A7AEF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		C3E4FD5527C1A3A1007A7AEF /* MenuGroupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuGroupViewController.swift; sourceTree = "<group>"; };
 		C3E4FD5827C1A3A1007A7AEF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C3E4FD5B27C1A3A2007A7AEF /* tb_dev_challenge.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = tb_dev_challenge.xcdatamodel; sourceTree = "<group>"; };
 		C3E4FD5D27C1A3A4007A7AEF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -88,7 +88,7 @@
 				C381018C27EAC25E0084377B /* Model */,
 				C3E4FD5127C1A3A1007A7AEF /* AppDelegate.swift */,
 				C3E4FD5327C1A3A1007A7AEF /* SceneDelegate.swift */,
-				C3E4FD5527C1A3A1007A7AEF /* ViewController.swift */,
+				C3E4FD5527C1A3A1007A7AEF /* MenuGroupViewController.swift */,
 				C3E4FD7E27CB4137007A7AEF /* ItemCollectionViewController.swift */,
 				C3E4FD5727C1A3A1007A7AEF /* Main.storyboard */,
 				C3634C9327F15203001CEDB6 /* MenuGroupCell.swift */,
@@ -194,7 +194,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C3E4FD5627C1A3A1007A7AEF /* ViewController.swift in Sources */,
+				C3E4FD5627C1A3A1007A7AEF /* MenuGroupViewController.swift in Sources */,
 				C3E4FD5227C1A3A1007A7AEF /* AppDelegate.swift in Sources */,
 				C3DC0CB127F405CF00FB101F /* MenuGroups+CoreDataProperties.swift in Sources */,
 				C3EF4D2827F6C3640069C2BA /* MenuItems+CoreDataProperties.swift in Sources */,

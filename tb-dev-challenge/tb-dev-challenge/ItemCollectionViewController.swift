@@ -22,11 +22,12 @@ class ItemCollectionViewController: UICollectionViewController {
             menuGroupItems = allMenuItems
         }
         self.navigationItem.rightBarButtonItem = self.editButtonItem
-        self.collectionView.reloadData()
-        fetchMenuGroupItems()
+//        self.collectionView.reloadData()
+//        fetchMenuGroupItems()
     }
 
     override func viewWillAppear(_ animated: Bool) {
+        super .viewWillAppear(true)
         fetchMenuGroupItems()
         self.collectionView.reloadData()
     }
@@ -40,16 +41,16 @@ class ItemCollectionViewController: UICollectionViewController {
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let item = collectionView.dequeueReusableCell(withReuseIdentifier: "ItemCell", for: indexPath) as? MenuItemCell else { fatalError("Unable to dequeue MenuItemCell") }
         let menuItems = menuGroup?.menuItems?[indexPath.row]
-        item.MenuItemLabel.text = menuItems?.itemName
+        item.menuItemLabel.text = menuItems?.itemName
         let itemPrceToTwoDecimalPlaces = String(format: "%.2f", menuItems?.itemPrice as! CVarArg)
-        item.MenuItemPriceLabel.text = "$ \( itemPrceToTwoDecimalPlaces )"
+        item.menuItemPriceLabel.text = "$ \( itemPrceToTwoDecimalPlaces )"
         let menuImageName = menuItems?.itemImage ?? ""
         let imageAsset = UIImage(named: menuImageName)
         let path = getDocumentDirectory().appendingPathComponent((menuItems?.itemImage)!)
-        item.MenuItemImage.image = UIImage(contentsOfFile: path.path) ?? imageAsset
-        item.MenuItemImage.layer.borderColor = UIColor(white: 0, alpha: 0.3).cgColor
-        item.MenuItemImage.layer.borderWidth = 2
-        item.MenuItemImage.layer.cornerRadius = 3
+        item.menuItemImage.image = UIImage(contentsOfFile: path.path) ?? imageAsset
+        item.menuItemImage.layer.borderColor = UIColor(white: 0, alpha: 0.3).cgColor
+        item.menuItemImage.layer.borderWidth = 2
+        item.menuItemImage.layer.cornerRadius = 3
         item.layer.cornerRadius = 7
         return item
     }
@@ -64,8 +65,8 @@ class ItemCollectionViewController: UICollectionViewController {
 
     func showSelectedItemName(indexPath: IndexPath) {
         let menuItems = menuGroup?.menuItems?[indexPath.item]
-        let itemName = menuItems?.itemName!
-        let ac = UIAlertController(title: "You have selected: '\(String(describing: itemName!))'", message: nil, preferredStyle: .alert)
+        let itemName = menuItems?.itemName ?? ""
+        let ac = UIAlertController(title: "You have selected: '\(String(describing: itemName))'", message: nil, preferredStyle: .alert)
         ac.addAction(UIAlertAction(title: "OK", style: .cancel))
         present(ac, animated: true)
     }
@@ -75,7 +76,7 @@ class ItemCollectionViewController: UICollectionViewController {
             // REVIEW: This fixes the selected item not being currecly populated in the edit view controller but it causes a crash when you try to edit a newly created item
             let selectedIndexPath = sender as? NSIndexPath
             let itemDetailVC = segue.destination as! ItemAddEditViewController
-            itemDetailVC.itemSelected = menuGroupItems![selectedIndexPath!.item]
+            itemDetailVC.itemSelected = menuGroupItems?[selectedIndexPath?.item ?? 0]
         }
     }
     func fetchMenuGroupItems() {

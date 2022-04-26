@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  MenuGroupViewController.swift
 //  tb-dev-challenge
 //
 //  Created by Bhavin Kapadia on 2022-02-19.
@@ -8,7 +8,7 @@
 import UIKit
 import CoreData
 
-class ViewController: UICollectionViewController, UINavigationControllerDelegate {
+class MenuGroupViewController: UICollectionViewController, UINavigationControllerDelegate {
     // Reference to managed object context
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     var menuGroupData: [MenuGroups]?
@@ -23,7 +23,7 @@ class ViewController: UICollectionViewController, UINavigationControllerDelegate
         editButtonItem.isEnabled = false
         fetchMenuGroup()
 
-        if self.menuGroupData!.count > 0 {
+        if self.menuGroupData?.count ?? 0 > 0 {
             editButtonItem.isEnabled = true
         }
     }
@@ -40,7 +40,7 @@ class ViewController: UICollectionViewController, UINavigationControllerDelegate
     }
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return self.menuGroupData!.count
+        return self.menuGroupData?.count ?? 0
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -48,11 +48,12 @@ class ViewController: UICollectionViewController, UINavigationControllerDelegate
             fatalError("MenuGroupCell could not be dequed")
         }
 
-        let menuGroupFromData = self.menuGroupData![indexPath.item]
+        guard let menuGroupFromData = self.menuGroupData?[indexPath.item] else {
+            fatalError("Data for the cell for item at menu group could not be retrieved")
+        }
 
         cell.menuGroupName.text = menuGroupFromData.menuName
         let menuImageName = menuGroupFromData.menuImage
-
         let imageAsset = UIImage(named: menuImageName ?? "")
 
         let path = getDocumentDirectory().appendingPathComponent(menuGroupFromData.menuImage ?? "")
@@ -67,7 +68,10 @@ class ViewController: UICollectionViewController, UINavigationControllerDelegate
 
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
 
-        let menuGroupFromData = self.menuGroupData![indexPath.item]
+        guard let menuGroupFromData = self.menuGroupData?[indexPath.item] else {
+            print("Data for the selected menu group could not be retrieved")
+            return
+        }
 
         if menuGroupFromData.menuSet == true && editModeEnabled == true {
             editMenu(indexPath: indexPath)
@@ -82,7 +86,7 @@ class ViewController: UICollectionViewController, UINavigationControllerDelegate
     }
 }
 
-extension ViewController {
+extension MenuGroupViewController {
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
@@ -91,7 +95,7 @@ extension ViewController {
               let selectedItem = self.collectionView.indexPathsForSelectedItems?.last?.row else {
             return
         }
-        menuItemCollectionVC.menuGroup = menuGroupData![selectedItem]
+        menuItemCollectionVC.menuGroup = menuGroupData?[selectedItem]
     }
 
     override func setEditing(_ editing: Bool, animated: Bool) {
@@ -105,7 +109,11 @@ extension ViewController {
     }
 
     func renameMenu(indexPath: IndexPath) {
-        let menuGroup = self.menuGroupData![indexPath.row]
+        guard let menuGroup = self.menuGroupData?[indexPath.row] else {
+            print("Data for the selected menu group could not be retrieved")
+            return
+        }
+        
         let ac = UIAlertController(title: "Rename Menu Group", message: nil, preferredStyle: .alert)
         ac.addTextField {
             (textField) in
@@ -118,11 +126,11 @@ extension ViewController {
             menuGroup.menuName = newMenuGroupName
             menuGroup.menuSet = true
             do {
-                try self!.context.save()
+                try self?.context.save()
             } catch {
                 print("Failed to save data")
             }
-            self!.fetchMenuGroup()
+            self?.fetchMenuGroup()
 
         }
         action.isEnabled = false
@@ -138,8 +146,10 @@ extension ViewController {
     }
 
     func deleteMenu(indexPath: IndexPath) {
-
-        let menuGroupDataToRemove = self.menuGroupData![indexPath.item]
+        guard let menuGroupDataToRemove = self.menuGroupData?[indexPath.item] else {
+            print("Could not retrive data to delete for selected menu group")
+            return
+        }
         self.context.delete(menuGroupDataToRemove)
 
         do {
@@ -149,7 +159,7 @@ extension ViewController {
         }
         fetchMenuGroup()
 
-        if self.menuGroupData!.count < 1 {
+        if self.menuGroupData?.count ?? 0 < 1 {
             editButtonItem.isEnabled = false
             setEditing(false, animated: true)
         }
@@ -171,7 +181,7 @@ extension ViewController {
     }
 }
 
-extension ViewController: UIImagePickerControllerDelegate {
+extension MenuGroupViewController: UIImagePickerControllerDelegate {
 
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
         guard let image = info[.editedImage] as? UIImage else { return }
