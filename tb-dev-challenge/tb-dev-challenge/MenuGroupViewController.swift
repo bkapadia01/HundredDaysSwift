@@ -82,7 +82,6 @@ class MenuGroupViewController: UICollectionViewController, UINavigationControlle
         if menuGroupFromData.menuSet == false {
             renameMenu(indexPath: indexPath)
         }
-
     }
 }
 

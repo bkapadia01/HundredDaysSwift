@@ -10,7 +10,7 @@ import CoreData
 
 class ItemCollectionViewController: UICollectionViewController {
 
-    var menuGroupItems: [MenuItems]?
+    var menuGroupItems: [MenuItem]?
     var menuGroup: MenuGroups?
 
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
@@ -18,12 +18,10 @@ class ItemCollectionViewController: UICollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = menuGroup?.menuName
-        if let allMenuItems = menuGroup?.ofMenuItem?.allObjects as? [MenuItems] {
-            menuGroupItems = allMenuItems
-        }
+//        if let allMenuItems = menuGroup?.ofMenuItem?.allObjects as? [MenuItem] {
+//            menuGroupItems = allMenuItems
+//        }
         self.navigationItem.rightBarButtonItem = self.editButtonItem
-//        self.collectionView.reloadData()
-//        fetchMenuGroupItems()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -82,12 +80,11 @@ class ItemCollectionViewController: UICollectionViewController {
     func fetchMenuGroupItems() {
         do {
             let fetchRequest =
-                 NSFetchRequest<NSManagedObject>(entityName: "MenuItems")
+                 NSFetchRequest<MenuItem>(entityName: "MenuItem")
              let sort = NSSortDescriptor(key: "itemDateCreated", ascending: false)
              fetchRequest.sortDescriptors = [sort]
             do {
-                _ = try context.fetch(fetchRequest)
-
+                menuGroupItems = try context.fetch(fetchRequest)
                } catch let error as NSError {
                    print("Could not fetch. \(error), \(error.userInfo)")
                }

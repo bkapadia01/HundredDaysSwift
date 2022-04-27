@@ -9,10 +9,10 @@
 import Foundation
 import CoreData
 
-extension MenuItems {
+extension MenuItem {
 
-    @nonobjc public class func fetchRequest() -> NSFetchRequest<MenuItems> {
-        return NSFetchRequest<MenuItems>(entityName: "MenuItems")
+    @nonobjc public class func fetchRequest() -> NSFetchRequest<MenuItem> {
+        return NSFetchRequest<MenuItem>(entityName: "MenuItem")
     }
 
     @NSManaged public var itemImage: String?
@@ -23,6 +23,6 @@ extension MenuItems {
 
 }
 
-extension MenuItems: Identifiable {
+extension MenuItem: Identifiable {
 
 }

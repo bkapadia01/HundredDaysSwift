@@ -17,7 +17,7 @@ class ItemAddEditViewController: UIViewController, UINavigationControllerDelegat
 
     var menuGroup: MenuGroups?
     var imageSelected: String? = ""
-    var itemSelected: MenuItems?
+    var itemSelected: MenuItem?
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
 
     override func viewDidLoad() {
@@ -76,26 +76,30 @@ class ItemAddEditViewController: UIViewController, UINavigationControllerDelegat
             let itemPrice = Double(itemPriceString)
             let itemImage = imageSelected
 
-            if let addNewItem = MenuItems(itemImage: itemImage, itemName: itemName, itemPrice: itemPrice, itemDateCreated: Date()) {
+            if let addNewItem = MenuItem(itemImage: itemImage, itemName: itemName, itemPrice: itemPrice, itemDateCreated: Date()) {
                 menuGroup?.addToOfMenuItem(addNewItem)
 
                 do {
-                    try addNewItem.managedObjectContext?.save()
+                    try self.context.save()
+                
+//                    try addNewItem.managedObjectContext?.save()
                     _ = navigationController?.popViewController(animated: true)
                 } catch {
                     print("Menu item failed to save!")
                 }
             }
         } else {
-
             let itemName = menuItemNameTextField.text
             let itemPriceString = menuItemPriceTextField.text ?? ""
             let itemPrice = Double(itemPriceString)
             let itemImage = imageSelected
             do {
-                itemSelected?.setValue(itemName, forKey: "itemName")
-                itemSelected?.setValue(itemImage, forKey: "itemImage")
-                itemSelected?.setValue(itemPrice, forKey: "itemPrice")
+                itemSelected?.itemName = itemName
+                itemSelected?.itemPrice = itemPrice ?? 0.00
+                itemSelected?.itemImage = itemImage
+//                itemSelected?.setValue(itemName, forKey: "itemName")
+//                itemSelected?.setValue(itemImage, forKey: "itemImage")
+//                itemSelected?.setValue(itemPrice, forKey: "itemPrice")
                 try self.context.save()
 
                 _ = navigationController?.popViewController(animated: true)

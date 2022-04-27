@@ -26,10 +26,10 @@ extension MenuGroups {
 extension MenuGroups {
 
     @objc(addOfMenuItemObject:)
-    @NSManaged public func addToOfMenuItem(_ value: MenuItems)
+    @NSManaged public func addToOfMenuItem(_ value: MenuItem)
 
     @objc(removeOfMenuItemObject:)
-    @NSManaged public func removeFromOfMenuItem(_ value: MenuItems)
+    @NSManaged public func removeFromOfMenuItem(_ value: MenuItem)
 
     @objc(addOfMenuItem:)
     @NSManaged public func addToOfMenuItem(_ values: NSSet)

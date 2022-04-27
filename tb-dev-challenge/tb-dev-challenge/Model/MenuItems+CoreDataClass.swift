@@ -9,8 +9,8 @@
 import UIKit
 import CoreData
 
-@objc(MenuItems)
-public class MenuItems: NSManagedObject {
+@objc(MenuItem)
+class MenuItem: NSManagedObject {
 
     convenience init?(itemImage: String?, itemName: String?, itemPrice: Double?, itemDateCreated: Date?) {
         let appDelegate = UIApplication.shared.delegate as? AppDelegate
@@ -19,7 +19,7 @@ public class MenuItems: NSManagedObject {
             return nil
         }
 
-        self.init(entity: MenuItems.entity(), insertInto: context)
+        self.init(entity: MenuItem.entity(), insertInto: context)
         self.itemImage = itemImage
         self.itemName = itemName
         self.itemPrice = itemPrice!
