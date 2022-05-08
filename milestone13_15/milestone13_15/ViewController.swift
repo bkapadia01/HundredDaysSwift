@@ -28,8 +28,6 @@ class ViewController: UITableViewController & UINavigationControllerDelegate {
         } else {
             fatalError("NOOOO")
         }
-        
-        
     }
     
     func parse(json: Data) -> [CountryFact]{
