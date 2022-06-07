@@ -16,7 +16,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     let locationManager  = CLLocationManager()
     var currenetLocation: CLLocation?
     var current: Current?
-    
+    let geoCoder = CLGeocoder()
+    var cityName: String = ""
     override func viewDidAppear(_ animated: Bool) {
         super .viewDidAppear(animated)
         setupLocation()
@@ -50,8 +51,18 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             locationManager.stopUpdatingLocation()
             requestWeatherForLocation()
         }
+        
+        geoCoder.reverseGeocodeLocation(currenetLocation!, completionHandler: { (placemarks, _) -> Void in
+
+            placemarks?.forEach { (placemark) in
+                if let city = placemark.locality { self.cityName = city } // Prints "New York"
+            }
+            
+            
+        })
     }
     
+
     
     func requestWeatherForLocation() {
         guard let currenetLocation = currenetLocation else {
@@ -126,9 +137,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             return UIView()
         }
 
-        tempLabel.text = "\(self.current!.temp)°"
+        tempLabel.text = "\(Int(self.current!.temp))°"
         tempLabel.font = UIFont(name: "Helvetica-Bold", size: 32)
-        locationLabel.text = "Current Locaiton"
+        locationLabel.text = "Current Locaiton: \(cityName)"
         summaryLabel.text = "\(self.current!.weather[0].main)°"
         return headerView
     }
