@@ -16,14 +16,6 @@ class WeatherTableViewCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
-//        backgroundColor = .gray
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
     
     static let identifer = "WeatherTableViewCell"
@@ -32,8 +24,6 @@ class WeatherTableViewCell: UITableViewCell {
     }
     
     func configureWithModel(with model: Daily) {
-//        print(Int(model.dt))
-        
         
         self.highTempLabel.textAlignment = .center
         self.lowTempLabel.textAlignment = .center
@@ -41,7 +31,6 @@ class WeatherTableViewCell: UITableViewCell {
         self.highTempLabel.text = "\(Int(model.temp.max))°"
         
         self.dayLabel.text = getDayForDate(Date(timeIntervalSince1970: Double(model.dt)))
-//        self.iconImageView.image = UIImage(named: "clear")
         self.iconImageView.contentMode = .scaleAspectFit
         
         let weatherIcon = model.weather[0].main.lowercased()
@@ -57,8 +46,6 @@ class WeatherTableViewCell: UITableViewCell {
         } else if weatherIcon.contains("clouds") {
             self.iconImageView.image = UIImage(named: "cloud")
         }
-    
-        
     }
     
     func getDayForDate(_ date: Date?) -> String {

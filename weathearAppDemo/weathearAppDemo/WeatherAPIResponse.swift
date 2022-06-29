@@ -14,12 +14,13 @@ struct WeatherResponse: Codable {
     var timezone: String?
     var timezoneOffset: Int?
     var current: Current
+    var hourly: [Current]
     var daily: [Daily]
 }
 
 // MARK: - Current
 struct Current: Codable  {
-    var dt: Int?
+    var dt: Int
     var sunrise: Int?
     var sunset: Int?
     var temp: Double
