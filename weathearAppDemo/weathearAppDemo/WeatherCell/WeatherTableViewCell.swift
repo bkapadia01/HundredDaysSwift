@@ -24,13 +24,12 @@ class WeatherTableViewCell: UITableViewCell {
     }
     
     func configureWithModel(with model: Daily) {
-        
         self.highTempLabel.textAlignment = .center
         self.lowTempLabel.textAlignment = .center
         self.lowTempLabel.text = "\(Int(model.temp.min))°"
         self.highTempLabel.text = "\(Int(model.temp.max))°"
         
-        self.dayLabel.text = getDayForDate(Date(timeIntervalSince1970: Double(model.dt)))
+        self.dayLabel.text = getFormattedDayForDate(Date(timeIntervalSince1970: Double(model.dt)))
         self.iconImageView.contentMode = .scaleAspectFit
         
         let weatherIcon = model.weather[0].main.lowercased()
@@ -48,7 +47,7 @@ class WeatherTableViewCell: UITableViewCell {
         }
     }
     
-    func getDayForDate(_ date: Date?) -> String {
+    func getFormattedDayForDate(_ date: Date?) -> String {
         guard let inputDate = date else {
             return ""
         }

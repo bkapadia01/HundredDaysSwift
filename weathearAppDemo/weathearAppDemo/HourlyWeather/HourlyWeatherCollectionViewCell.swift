@@ -24,7 +24,7 @@ class HourlyWeatherCollectionViewCell: UICollectionViewCell {
     }
     
     func configureWithModel(with model: [Current]) {
-        let currentTime = getHour(Date(timeIntervalSince1970: Double(model[0].dt)))
+        let currentTime = formatHourForHourlyForecast(Date(timeIntervalSince1970: Double(model[0].dt)))
         self.timeLabel.text = "\(currentTime)"
         self.tempLabel.text = "\(Int(model[0].temp))°C"
         
@@ -44,7 +44,7 @@ class HourlyWeatherCollectionViewCell: UICollectionViewCell {
         }
     }
     
-    func getHour(_ hour: Date?) -> String {
+    func formatHourForHourlyForecast(_ hour: Date?) -> String {
         guard let inputData = hour else {
             return ""
         }
