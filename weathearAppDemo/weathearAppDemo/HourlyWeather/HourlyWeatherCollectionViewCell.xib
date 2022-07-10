@@ -17,9 +17,8 @@
                 <rect key="frame" x="0.0" y="0.0" width="64" height="64"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <view contentMode="scaleToFill" id="1qr-mW-31V" userLabel="ContentView" customClass="HourlyWeatherCollectionViewCell" customModule="weathearAppDemo" customModuleProvider="target">
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1qr-mW-31V" userLabel="ContentView" customClass="HourlyWeatherCollectionViewCell" customModule="weathearAppDemo" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="64" height="64"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="vnD-oI-Fkw">
                                 <rect key="frame" x="20" y="19" width="24" height="26"/>

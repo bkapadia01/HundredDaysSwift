@@ -197,9 +197,9 @@ class ViewController: UIViewController {
 
         reloadUIViewToClearData()
         currentInfoView.backgroundColor = UIColor(red: 200/255, green: 200/255, blue: 200/255, alpha: 0.3)
-        locationLabel =  UILabel(frame: CGRect(x: 10, y: 60, width: view.frame.size.width - 20, height: currentInfoView.frame.size.height/5))
-        weatherConditionLabel = UILabel(frame: CGRect(x: 10, y: 60 + locationLabel.frame.size.height, width: view.frame.size.width - 20, height: currentInfoView.frame.size.height/15))
-        tempLabel = UILabel(frame: CGRect(x: 10, y: 60 + weatherConditionLabel.frame.size.height + locationLabel.frame.size.height, width: view.frame.size.width - 20, height: currentInfoView.frame.size.height/10))
+        locationLabel =  UILabel(frame: CGRect(x: 15, y: 60, width: view.frame.size.width - 20, height: currentInfoView.frame.size.height/5))
+        weatherConditionLabel = UILabel(frame: CGRect(x: 15, y: 60 + locationLabel.frame.size.height, width: view.frame.size.width - 20, height: currentInfoView.frame.size.height/15))
+        tempLabel = UILabel(frame: CGRect(x: 15, y: 60 + weatherConditionLabel.frame.size.height + locationLabel.frame.size.height, width: view.frame.size.width - 20, height: currentInfoView.frame.size.height/10))
         
         self.currentConditions.contentMode = .scaleAspectFit
         self.cityImage.contentMode = .scaleToFill
