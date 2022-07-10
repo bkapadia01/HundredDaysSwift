@@ -40,7 +40,7 @@
                                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         </collectionViewFlowLayout>
                                         <cells>
-                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="zA7-cb-HBD">
+                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="HourlyWeatherCollectionView" id="zA7-cb-HBD">
                                                 <rect key="frame" x="0.0" y="1" width="64" height="64"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="XSc-en-SNM">
@@ -51,18 +51,27 @@
                                             </collectionViewCell>
                                         </cells>
                                     </collectionView>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hfj-17-Qit">
+                                        <rect key="frame" x="182" y="120" width="50" height="41"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="50" id="FK3-rT-FeS"/>
+                                        </constraints>
+                                    </imageView>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <accessibility key="accessibilityConfiguration">
                                     <accessibilityTraits key="traits" notEnabled="YES"/>
                                 </accessibility>
                                 <constraints>
+                                    <constraint firstItem="hfj-17-Qit" firstAttribute="centerX" secondItem="nVN-dw-cMO" secondAttribute="centerX" id="2FL-zG-bUL"/>
                                     <constraint firstAttribute="bottom" secondItem="uzW-GS-oc1" secondAttribute="bottom" id="AaD-as-SXQ"/>
                                     <constraint firstAttribute="trailing" secondItem="kkK-NS-27k" secondAttribute="trailing" constant="10" id="E4D-v9-AUy"/>
+                                    <constraint firstItem="uzW-GS-oc1" firstAttribute="top" secondItem="hfj-17-Qit" secondAttribute="bottom" constant="263" id="Hd7-bk-3bf"/>
                                     <constraint firstItem="kkK-NS-27k" firstAttribute="top" secondItem="nVN-dw-cMO" secondAttribute="top" constant="35" id="Hkb-Bw-dMH"/>
                                     <constraint firstItem="kkK-NS-27k" firstAttribute="centerX" secondItem="nVN-dw-cMO" secondAttribute="centerX" id="Ioe-H2-gjL"/>
                                     <constraint firstItem="uzW-GS-oc1" firstAttribute="centerX" secondItem="nVN-dw-cMO" secondAttribute="centerX" id="MN3-F8-Mkl"/>
                                     <constraint firstAttribute="bottom" secondItem="kkK-NS-27k" secondAttribute="bottom" constant="10" id="PXu-gL-Pct"/>
+                                    <constraint firstItem="hfj-17-Qit" firstAttribute="top" secondItem="nVN-dw-cMO" secondAttribute="top" constant="120" id="nfx-CS-RB6"/>
                                     <constraint firstItem="uzW-GS-oc1" firstAttribute="leading" secondItem="kkK-NS-27k" secondAttribute="leading" id="t0e-jd-O7R"/>
                                     <constraint firstItem="kkK-NS-27k" firstAttribute="leading" secondItem="nVN-dw-cMO" secondAttribute="leading" constant="10" id="zlw-DR-Qkr"/>
                                 </constraints>
@@ -74,20 +83,17 @@
                             <constraint firstItem="9O7-cQ-hKU" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="4hg-lN-g7l"/>
                             <constraint firstItem="nVN-dw-cMO" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="BMQ-tW-1EQ"/>
                             <constraint firstItem="nVN-dw-cMO" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="-90" id="KtK-xp-UBY"/>
-                            <constraint firstAttribute="bottom" secondItem="9O7-cQ-hKU" secondAttribute="bottom" id="NZ4-8U-etq"/>
-                            <constraint firstItem="9O7-cQ-hKU" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="QPa-BA-vLQ"/>
+                            <constraint firstItem="9O7-cQ-hKU" firstAttribute="trailing" secondItem="nVN-dw-cMO" secondAttribute="trailing" id="MWO-aL-qmU"/>
                             <constraint firstAttribute="bottom" secondItem="9O7-cQ-hKU" secondAttribute="bottom" id="RkC-h0-Akc"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="nVN-dw-cMO" secondAttribute="trailing" id="U7P-x8-IVT"/>
-                            <constraint firstItem="9O7-cQ-hKU" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="gV5-UQ-aTd"/>
                             <constraint firstItem="9O7-cQ-hKU" firstAttribute="top" secondItem="nVN-dw-cMO" secondAttribute="bottom" id="pCT-Cd-G3z"/>
-                            <constraint firstItem="9O7-cQ-hKU" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="plr-9p-qfY"/>
-                            <constraint firstItem="9O7-cQ-hKU" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="rJf-NG-RjV"/>
                             <constraint firstItem="9O7-cQ-hKU" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="400" id="xD0-qE-vHs"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="DzR-Od-r3t"/>
                     <connections>
                         <outlet property="cityImage" destination="kkK-NS-27k" id="iHI-sV-WYD"/>
+                        <outlet property="currentConditions" destination="hfj-17-Qit" id="TGd-k0-Zdb"/>
                         <outlet property="currentInfoView" destination="nVN-dw-cMO" id="5GU-L0-Vt3"/>
                         <outlet property="dailyWeatherTableView" destination="9O7-cQ-hKU" id="sHl-Rd-uLb"/>
                         <outlet property="hourlyWeatherCollectionView" destination="uzW-GS-oc1" id="ff9-FH-bXu"/>
