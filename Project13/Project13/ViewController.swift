@@ -32,6 +32,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         radius.isEnabled = false
 
     }
+    
 
     @IBAction func changeFilter(_ sender: UIButton) {
         let ac = UIAlertController(title: "Choose Filter", message: nil, preferredStyle: .actionSheet)
