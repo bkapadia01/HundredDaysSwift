@@ -17,7 +17,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Low" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kf5-06-8p8">
-                        <rect key="frame" x="414" y="11" width="31" height="60"/>
+                        <rect key="frame" x="394" y="11" width="31" height="60"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -36,14 +36,14 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="High" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nqg-LF-reH">
-                        <rect key="frame" x="358.5" y="11" width="35.5" height="60"/>
+                        <rect key="frame" x="338.5" y="11" width="35.5" height="60"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="nqg-LF-reH" firstAttribute="leading" secondItem="4l5-dC-WYz" secondAttribute="trailing" constant="80" id="8Zr-od-TJk"/>
+                    <constraint firstItem="nqg-LF-reH" firstAttribute="leading" secondItem="4l5-dC-WYz" secondAttribute="trailing" constant="60" id="8Zr-od-TJk"/>
                     <constraint firstItem="4l5-dC-WYz" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="B3F-Uu-iUI"/>
                     <constraint firstItem="Kf5-06-8p8" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="Ern-TU-b50"/>
                     <constraint firstItem="aVi-OF-SM2" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="GPW-UX-oNc"/>

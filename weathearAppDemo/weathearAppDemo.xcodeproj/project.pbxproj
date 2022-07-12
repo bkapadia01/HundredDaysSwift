@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		C363745F286B9BCC00DA24D7 /* City.swift in Sources */ = {isa = PBXBuildFile; fileRef = C363745E286B9BCC00DA24D7 /* City.swift */; };
 		C3CF6C74283AE319008EF211 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3CF6C73283AE319008EF211 /* AppDelegate.swift */; };
 		C3CF6C76283AE319008EF211 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3CF6C75283AE319008EF211 /* SceneDelegate.swift */; };
 		C3CF6C78283AE319008EF211 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3CF6C77283AE319008EF211 /* ViewController.swift */; };
@@ -23,7 +22,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		C363745E286B9BCC00DA24D7 /* City.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = City.swift; sourceTree = "<group>"; };
 		C3CF6C70283AE319008EF211 /* weathearAppDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = weathearAppDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3CF6C73283AE319008EF211 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C3CF6C75283AE319008EF211 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -75,7 +73,6 @@
 				C3CF6C8A283AEA0A008EF211 /* WeatherCell */,
 				C3CF6C75283AE319008EF211 /* SceneDelegate.swift */,
 				C3CF6C77283AE319008EF211 /* ViewController.swift */,
-				C363745E286B9BCC00DA24D7 /* City.swift */,
 				C3E7AB6D2846B3DA007EB7A1 /* WeatherAPIResponse.swift */,
 				C3CF6C79283AE319008EF211 /* Main.storyboard */,
 				C3CF6C7F283AE31D008EF211 /* Assets.xcassets */,
@@ -183,7 +180,6 @@
 				C3CF6C78283AE319008EF211 /* ViewController.swift in Sources */,
 				C3CF6C74283AE319008EF211 /* AppDelegate.swift in Sources */,
 				C3CF6C76283AE319008EF211 /* SceneDelegate.swift in Sources */,
-				C363745F286B9BCC00DA24D7 /* City.swift in Sources */,
 				C3CF6C7E283AE319008EF211 /* weathearAppDemo.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
